@@ -61,6 +61,7 @@ namespace AdminMenu
             teamsMenu.AddMenuOption(Msg.Get("TeamSpectator"),
                 (CCSPlayerController controller, ChatMenuOption option) =>
                 {
+                    targetPlayer.CommitSuicide(true,true);
                     targetPlayer.ChangeTeam(CsTeam.Spectator);
                     CheckRoundEndNeeded();
                     Server.PrintToChatAll($"{PluginPrefix} {Msg.Get("PlayerAssignedSpectator", targetPlayer.PlayerName, adminPlayer.PlayerName)}");
@@ -79,13 +80,13 @@ namespace AdminMenu
             var counterTerroristAlive = Utilities.GetPlayers()
                 .Count(p => p.IsValid && p.Team == CsTeam.CounterTerrorist && p.PawnIsAlive);
 
-            if (terroristAlive == 0 && counterTerroristAlive > 0)
+            if (terroristAlive < 1 && counterTerroristAlive > 0)
             {
                 Server.ExecuteCommand("cs_terminate_round 16");
                 return;
             }
 
-            if (counterTerroristAlive == 0 && terroristAlive > 0)
+            if (counterTerroristAlive < 1 && terroristAlive > 0)
             {
                 Server.ExecuteCommand("cs_terminate_round 17");
                 return;

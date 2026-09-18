@@ -45,9 +45,7 @@ namespace AdminMenu
 
         public override void Load(bool hotReload)
         {
-            RegisterEventHandler<EventPlayerConnect>(OnPlayerConnect);
             RegisterEventHandler<EventPlayerConnectFull>(OnPlayerConnectFull);
-            RegisterEventHandler<EventPlayerDisconnect>(OnPlayerDisconnect, HookMode.Pre);
             RegisterEventHandler<EventPlayerDeath>(OnPlayerDeath);
             RegisterEventHandler<EventPlayerSpawned>(OnPlayerSpawned);
             RegisterEventHandler<EventPlayerChat>(OnPlayerChat);
@@ -68,30 +66,6 @@ namespace AdminMenu
             _adminEntry = Utils.LoadDataFromFile<AdminEntry>(_adminsFilePath);
             _bannedEntry = Utils.LoadDataFromFile<BannedEntry>(_bannedFilePath);
             _weaponRestrictEntry = Utils.LoadDataFromFile<WeaponRestrictEntry>(_weaponRestrictFilePath);
-        }
-
-
-        [GameEventHandler(HookMode.Pre)]
-        private HookResult OnPlayerDisconnect(EventPlayerDisconnect @event, GameEventInfo info)
-        {
-            var playerName = @event.Userid?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
-            Logger?.LogInformation($"Player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
-            
-            if (IsSpammer(@event.Userid)) // This user is spamming
-            {
-                Logger?.LogInformation($"Player is a spammer: {playerName}");
-                info.DontBroadcast = true;
-            }
-            return HookResult.Continue;
-        }
-
-        private bool IsSpammer(CCSPlayerController? player)
-        {
-            if (player?.PlayerName is not null && Regex.Matches(player.PlayerName, "\r?\n").Count >= 2)
-            {
-                return true;
-            }
-            return false;
         }
 
         private HookResult OnPlayerSpawned(EventPlayerSpawned @event, GameEventInfo info)
@@ -192,17 +166,6 @@ namespace AdminMenu
             return HookResult.Continue;
         }
 
-        private HookResult OnPlayerConnect(EventPlayerConnect @event, GameEventInfo info)
-        {
-            var player = @event.Userid;
-
-            if (IsSpammer(player))
-            {
-                player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKBANADDED);
-            }
-            return HookResult.Continue;
-        }
-
         private HookResult OnPlayerConnectFull(EventPlayerConnectFull @event, GameEventInfo info)
         {
             var player = @event.Userid;
@@ -268,12 +231,6 @@ namespace AdminMenu
         public HookResult OnPlayerChat(EventPlayerChat @event, GameEventInfo info)
         {
             var player = Utilities.GetPlayerFromUserid(@event.Userid);
-
-            if (IsSpammer(player))
-            {
-                player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKED);
-                return HookResult.Handled;
-            }
 
             if (_pendingRename is not null &&
                 _pendingRename.Count != 0 &&
@@ -461,56 +418,6 @@ namespace AdminMenu
             if (adminCount > 0)
             {
                 Server.PrintToChatAll($"{adminCount} {adminList}");
-            }
-        }
-
-        private void RenamePlayer(CCSPlayerController adminPlayer, string newName, PendingRenameEntry pendingRename)
-        {
-            if (_pendingRename is null || pendingRename is null || string.IsNullOrWhiteSpace(newName) || newName.StartsWith('!'))
-            {
-                return;
-            }
-
-            try
-            {
-                if (pendingRename.Expiration < Utils.GetServerTime())
-                {
-                    lock (_pendingRenameLock)
-                    {
-                        _pendingRename.Remove(pendingRename.AdminSteamId2);
-                    }
-                    adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("RenameExpired")}");
-                    return;
-                }
-
-                try
-                {
-                    var target = PlayerHelper.GetAllPlayers().FirstOrDefault(p => p.AuthorizedSteamID?.SteamId2 == pendingRename.TargetSteamId2);
-                    if (target != null && target.IsValid)
-                    {
-                        target.PlayerName = newName;
-                        Server.PrintToChatAll($"{PluginPrefix} {Msg.Get("PlayerRenamed", pendingRename.OldName, newName, pendingRename.AdminName)}");
-                        Logger?.LogInformation($"Player renamed: {pendingRename.OldName} to {newName} by {pendingRename.AdminName} (SteamID2: {pendingRename.TargetSteamId2})");
-                    }
-                    else
-                    {
-                        adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("TargetDisconnected")}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Logger?.LogError($"Error applying rename: {ex.Message}");
-                    adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("RenameApplyError", ex.Message)}");
-                }
-
-                lock (_pendingRenameLock)
-                {
-                    _pendingRename.Remove(pendingRename.AdminSteamId2);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"Error processing pending rename: {ex.Message}");
             }
         }
 
