@@ -27,7 +27,7 @@ The project has been updated to the current CounterStrikeSharp toolchain and .NE
 | [ReviveTeammate](#reviveteammate) | 1.0 | Revive dead teammates by holding USE near them |
 | [SiteRestrict](#siterestrict) | 1.0 | Restricts bomb planting to a single random site when CTs are low |
 | [StartMap](#startmap) | 1.0 | Automatically switch to a configured map on server start |
-
+| [SpamFilter](#spamFilter) | 1.0 | Auto kick spammers without steamId, disable chat messages to them |
 ## Requirements
 
 - **Counter-Strike 2** dedicated game server
@@ -270,6 +270,15 @@ When the CT team has fewer players than a configurable threshold at the start of
 ## Installation
 
 Extract the `SiteRestrict` folder to `...\csgo\addons\counterstrikesharp\plugins\SiteRestrict\`.
+
+---
+
+# SpamFilter
+It tries to detect spammers and the frequent name changes used by scammers.
+
+## Installation
+
+Extract the `SpamFilter` folder to `...\csgo\addons\counterstrikesharp\plugins\SpamFilter\`.
 
 ---
 
