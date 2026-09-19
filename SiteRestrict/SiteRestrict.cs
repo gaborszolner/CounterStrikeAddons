@@ -20,7 +20,7 @@ namespace SiteRestrict
         private static (float MinX, float MinY, float MinZ, float MaxX, float MaxY, float MaxZ)? _allowedZone = null;
         private static (float X, float Y, float Z)? _allowedCenter = null;
         private static (float X, float Y, float Z)? _otherCenter = null;
-        private static string _allowedSiteName = "";
+        private static Site _allowedSiteName = Site.NotDefined;
         private static bool _isRestricted = false;
         private static bool _isWarmup = false;
         private static Config _config = new();
@@ -28,6 +28,10 @@ namespace SiteRestrict
         private CounterStrikeSharp.API.Modules.Timers.Timer? _messageTimer = null;
 
         private string SwitchConfigPath => Path.Combine(ModuleDirectory, "site_switch.json");
+
+        private static readonly Random random = new();
+        Site previousSite = Site.NotDefined;
+        double sameSiteProbability = 0.5;
 
         public override void Load(bool hotReload)
         {
@@ -98,9 +102,9 @@ namespace SiteRestrict
                 bool nowSwapped = _switchConfig.Toggle(mapName);
                 _switchConfig.Save(SwitchConfigPath);
 
-                if (_isRestricted && !string.IsNullOrEmpty(_allowedSiteName))
+                if (_isRestricted && _allowedSiteName == Site.NotDefined)
                 {
-                    _allowedSiteName = _allowedSiteName == "A" ? "B" : "A";
+                    _allowedSiteName = _allowedSiteName == Site.A ? Site.B : Site.A;
 
                     foreach (var p in Utilities.GetPlayers().Where(p => p.IsValid))
                         p.PrintToCenter(Msg.Get("SiteAllowed", _allowedSiteName));
@@ -122,7 +126,7 @@ namespace SiteRestrict
             _allowedZone = null;
             _allowedCenter = null;
             _otherCenter = null;
-            _allowedSiteName = "";
+            _allowedSiteName = Site.NotDefined;
             _isRestricted = false;
 
             if (_isWarmup)
@@ -159,16 +163,16 @@ namespace SiteRestrict
             if (_switchConfig.IsSwapped(Server.MapName))
                 (nameA, nameB) = (nameB, nameA);
 
-            if (Random.Shared.Next(2) == 0)
+            if (GetRandomSite(previousSite, ref sameSiteProbability) == Site.A)
             {
-                _allowedSiteName = nameA;
+                _allowedSiteName = Site.A;
                 _allowedZone = zoneA;
                 _allowedCenter = centerA;
                 _otherCenter = centerB;
             }
             else
             {
-                _allowedSiteName = nameB;
+                _allowedSiteName = Site.B;
                 _allowedZone = zoneB;
                 _allowedCenter = centerB;
                 _otherCenter = centerA;
@@ -185,6 +189,43 @@ namespace SiteRestrict
                 foreach (var p in Utilities.GetPlayers().Where(p => p.IsValid))
                     p.PrintToCenter(Msg.Get("SiteAllowed", _allowedSiteName));
             }, TimerFlags.REPEAT | TimerFlags.STOP_ON_MAPCHANGE);
+        }
+
+        private static Site GetRandomSite(Site previousSite, ref double sameSiteProbability)
+        {
+            Site nextSite = Site.NotDefined;
+            if (previousSite == Site.NotDefined)
+            {
+                return random.NextDouble() < 0.5 ? Site.A : Site.B;
+            }
+            else
+            {
+                if (random.NextDouble() < sameSiteProbability)
+                {
+                    nextSite = previousSite;
+                }
+                else
+                {
+                    nextSite = previousSite == Site.A ? Site.B : Site.A;
+                }
+
+                if (nextSite != previousSite)
+                {
+                    sameSiteProbability = 0.5;
+                }
+                else
+                {
+                    sameSiteProbability -= 0.1;
+
+                    if (sameSiteProbability < 0)
+                    {
+                        sameSiteProbability = 0;
+                    }
+                }
+
+                previousSite = nextSite;
+                return nextSite;
+            }
         }
 
         private HookResult OnRoundEnd(EventRoundEnd @event, GameEventInfo info)
@@ -277,8 +318,8 @@ namespace SiteRestrict
             }
 
             return (
-                "A", GetZoneAabb(siteA), GetSiteCenter(siteA),
-                "B", GetZoneAabb(siteB), GetSiteCenter(siteB)
+                Site.A.ToString(), GetZoneAabb(siteA), GetSiteCenter(siteA),
+                Site.B.ToString(), GetZoneAabb(siteB), GetSiteCenter(siteB)
             );
         }
 
@@ -328,5 +369,13 @@ namespace SiteRestrict
             float dz = a.Z - b.Z;
             return MathF.Sqrt(dx * dx + dy * dy + dz * dz);
         }
+    }
+
+    enum Site
+    {
+        NotDefined,
+        A,
+        B,
+        Both
     }
 }
