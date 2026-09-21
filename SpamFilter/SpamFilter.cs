@@ -5,9 +5,7 @@ using CounterStrikeSharp.API.Modules.Events;
 using CounterStrikeSharp.API.ValveConstants.Protobuf;
 using Microsoft.Extensions.Logging;
 using System.Text.RegularExpressions;
-using System.Linq;
 using SharedLibrary;
-using CounterStrikeSharp.API.Core.Attributes;
 
 namespace SpamFilter
 {
@@ -62,9 +60,10 @@ namespace SpamFilter
         private HookResult OnPlayerConnect(EventPlayerConnect @event, GameEventInfo info)
         {
             var player = @event.Userid;
-
             if (IsSpammer(player))
             {
+                var playerName = player?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
+                Logger?.LogInformation($"Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
                 player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKBANADDED);
             }
             return HookResult.Continue;
@@ -73,14 +72,19 @@ namespace SpamFilter
         [GameEventHandler(HookMode.Pre)]
         private HookResult OnPlayerDisconnect(EventPlayerDisconnect @event, GameEventInfo info)
         {
-            var playerName = @event.Userid?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
-            Logger?.LogInformation($"Player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
-
-            if (IsSpammer(@event.Userid))
+            var player = @event.Userid;
+            if(player?.IsBot == true)
             {
-                Logger?.LogInformation($"Player is a spammer: {playerName}");
+                return HookResult.Continue;
+            }
+
+            var playerName = player?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
+            if (IsSpammer(player))
+            {
+                Logger?.LogInformation($"Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
                 info.DontBroadcast = true;
             }
+
             return HookResult.Continue;
         }
 
@@ -90,6 +94,7 @@ namespace SpamFilter
 
             if (IsSpammer(player))
             {
+                Logger?.LogInformation($"Spammer player disconnect: {player?.PlayerName} - SteamID2: {player?.AuthorizedSteamID?.SteamId2}");
                 player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKED);
                 return HookResult.Handled;
             }
