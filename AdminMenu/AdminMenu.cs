@@ -1,15 +1,12 @@
 ﻿using AdminMenu.Entries;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Events;
 using CounterStrikeSharp.API.Modules.Menu;
 using CounterStrikeSharp.API.Modules.Utils;
 using CounterStrikeSharp.API.ValveConstants.Protobuf;
 using Microsoft.Extensions.Logging;
 using SharedLibrary;
-using System.Numerics;
-using System.Text.RegularExpressions;
 
 namespace AdminMenu
 {

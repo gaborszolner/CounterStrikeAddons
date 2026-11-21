@@ -1,0 +1,15 @@
+﻿{
+  "EnableRtv": true,
+  "EnableRtvInWarmup": false,
+  "MinimumRtvPercentage": 60,
+  "ChangeMapImmediatelyAfterRtv": true,
+  "EnableNominate": true,
+  "EnableNominateInWarmup": true,
+  "EnableEndOfMapVote": true,
+  "EndOfMapVoteRoundsBeforeEnd": 1,
+  "VotingSecondLimit": 30,
+  "CloseVotingMenuAfterVote": true,
+  "MapsToShow": 8,
+  "MapsInCoolDown": 3,
+  "Language": "en"
+}

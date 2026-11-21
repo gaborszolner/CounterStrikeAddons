@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
     <ProjectReference Include="..\AdminMenu\AdminMenu.csproj" />
+    <ProjectReference Include="..\RockTheVote\RockTheVote.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>你没有权限使用此命令。</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>配置已重新加载！</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>投票换图（RTV）已禁用。</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>热身期间无法使用投票换图。</value>
+  </data>
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>本地图已触发过投票换图。 (已投 {0} 票，需要 {1} 票)</value>
+  </data>
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>你已经投票换图了（{0}/{1}）。</value>
+  </data>
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} 想要换图（{1}/{2}）。输入 !rtv 加入。</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>投票换图成功！开始地图投票...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>地图提名已禁用。</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>热身期间无法提名地图。</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>提名一张地图</value>
+  </data>
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} 提名了 {1}。</value>
+  </data>
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>提名地图数量已达上限（{0}）。</value>
+  </data>
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>你的票已自动投给你提名的地图：{0}。输入 !revote 可更改。</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>投票换图（RTV）地图投票已结束 - 结果</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>地图结束投票已结束 - 结果</value>
+  </data>
+  <data name="MapNotFound" xml:space="preserve">
+    <value>没有与 '{0}' 匹配的可用地图。</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>没有可用的地图。</value>
+  </data>
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>下一张地图已确定：{0}。</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>地图投票正在进行中。</value>
+  </data>
+  <data name="VoteStarted" xml:space="preserve">
+    <value>为下一张地图投票！你有 {0} 秒。</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>为下一张地图投票</value>
+  </data>
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>你投票给了 {0}。</value>
+  </data>
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0}：{1} 票</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>无人投票，下一张地图将随机选择。</value>
+  </data>
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>下一张地图将是 {0}。</value>
+  </data>
+  <data name="ChangingMap" xml:space="preserve">
+    <value>将在 {1} 秒后切换到 {0}...</value>
+  </data>
+  <data name="NextMapIs" xml:space="preserve">
+    <value>下一张地图：{0}。</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>下一张地图将通过投票决定。</value>
+  </data>
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} 将下一张地图设置为 {1}。</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>选择下一张地图</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>当前没有进行中的地图投票。</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>你之前的投票已被移除，请重新投票！</value>
+  </data>
+</root>

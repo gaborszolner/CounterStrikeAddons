@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>Vous n'avez pas la permission d'utiliser cette commande.</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>Configuration rechargée !</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>Rock the vote est désactivé.</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>Rock the vote n'est pas disponible pendant l'échauffement.</value>
+  </data>
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>Rock the vote a déjà été déclenché sur cette carte. ({0} votes, {1} nécessaires)</value>
+  </data>
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>Vous avez déjà voté pour changer de carte ({0}/{1}).</value>
+  </data>
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} veut changer de carte ({1}/{2}). Tapez !rtv pour participer.</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>Rock the vote réussi ! Lancement du vote de carte...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>La nomination de cartes est désactivée.</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>La nomination de cartes n'est pas disponible pendant l'échauffement.</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>Nominez une carte</value>
+  </data>
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} a nominé {1}.</value>
+  </data>
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>Le nombre maximum de cartes nominées ({0}) est atteint.</value>
+  </data>
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>Votre vote a été automatiquement attribué à votre carte nominée : {0}. Tapez !revote pour le modifier.</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>Vote de carte rock the vote terminé - résultats</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>Vote de fin de carte terminé - résultats</value>
+  </data>
+  <data name="MapNotFound" xml:space="preserve">
+    <value>Aucune carte disponible ne correspond à '{0}'.</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>Aucune carte disponible.</value>
+  </data>
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>La prochaine carte est déjà décidée : {0}.</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>Un vote de carte est déjà en cours.</value>
+  </data>
+  <data name="VoteStarted" xml:space="preserve">
+    <value>Votez pour la prochaine carte ! Vous avez {0} secondes.</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>Votez pour la prochaine carte</value>
+  </data>
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>Vous avez voté pour {0}.</value>
+  </data>
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0} : {1} vote(s)</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>Personne n'a voté, la prochaine carte est choisie au hasard.</value>
+  </data>
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>La prochaine carte sera {0}.</value>
+  </data>
+  <data name="ChangingMap" xml:space="preserve">
+    <value>Changement de carte vers {0} dans {1} secondes...</value>
+  </data>
+  <data name="NextMapIs" xml:space="preserve">
+    <value>Prochaine carte : {0}.</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>La prochaine carte sera décidée par un vote.</value>
+  </data>
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} a défini la prochaine carte : {1}.</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>Choisissez la prochaine carte</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>Aucun vote de carte n&apos;est en cours.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Votre vote précédent a été supprimé, votez à nouveau !</value>
+  </data>
+</root>

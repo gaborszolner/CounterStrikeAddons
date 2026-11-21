@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>You have no permission to use this command.</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>Configs reloaded!</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>Rock the vote is disabled.</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>Rock the vote is not available during warmup.</value>
+  </data>
+  <!-- {0}=current RTV count, {1}=required count -->
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>Rock the vote has already been triggered on this map. ({0} voted, {1} needed)</value>
+  </data>
+  <!-- {0}=current RTV count, {1}=required count -->
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>You have already rocked the vote ({0}/{1}).</value>
+  </data>
+  <!-- {0}=player name, {1}=current RTV count, {2}=required count -->
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} wants to rock the vote ({1}/{2}). Type !rtv to join.</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>Rock the vote succeeded! Starting map vote...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>Map nomination is disabled.</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>Map nomination is not available during warmup.</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>Nominate a map</value>
+  </data>
+  <!-- {0}=player name, {1}=map -->
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} nominated {1}.</value>
+  </data>
+  <!-- {0}=maximum number of nominated maps -->
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>The maximum number of nominated maps ({0}) has been reached.</value>
+  </data>
+  <!-- {0}=map -->
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>Your vote was automatically cast for your nominated map: {0}. Type !revote to change it.</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>Rock the vote map vote ended - results</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>End of map vote ended - results</value>
+  </data>
+  <!-- {0}=map name or filter -->
+  <data name="MapNotFound" xml:space="preserve">
+    <value>No available map matches '{0}'.</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>No maps available.</value>
+  </data>
+  <!-- {0}=map -->
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>The next map is already decided: {0}.</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>A map vote is already in progress.</value>
+  </data>
+  <!-- {0}=seconds -->
+  <data name="VoteStarted" xml:space="preserve">
+    <value>Vote for the next map! You have {0} seconds.</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>Vote for the next map</value>
+  </data>
+  <!-- {0}=map -->
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>You voted for {0}.</value>
+  </data>
+  <!-- {0}=map, {1}=vote count -->
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0}: {1} vote(s)</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>Nobody voted, the next map is chosen randomly.</value>
+  </data>
+  <!-- {0}=map -->
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>The next map will be {0}.</value>
+  </data>
+  <!-- {0}=map, {1}=seconds -->
+  <data name="ChangingMap" xml:space="preserve">
+    <value>Changing map to {0} in {1} seconds...</value>
+  </data>
+  <!-- {0}=map -->
+  <data name="NextMapIs" xml:space="preserve">
+    <value>Next map: {0}.</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>The next map will be decided by vote.</value>
+  </data>
+  <!-- {0}=admin name, {1}=map -->
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} set the next map to {1}.</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>Choose the next map</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>There is no map vote in progress.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Your previous vote has been removed, vote again!</value>
+  </data>
+</root>

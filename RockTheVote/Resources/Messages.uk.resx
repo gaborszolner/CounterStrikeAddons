@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>У вас немає прав на цю команду.</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>Конфігурацію перезавантажено!</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>Голосування за зміну мапи (RTV) вимкнено.</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>RTV недоступне під час розминки.</value>
+  </data>
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>Голосування за зміну мапи вже було запущено на цій мапі. ({0} голосів, {1} необхідно)</value>
+  </data>
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>Ви вже проголосували за зміну мапи ({0}/{1}).</value>
+  </data>
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} хоче змінити мапу ({1}/{2}). Напишіть !rtv, щоб приєднатися.</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>RTV успішне! Починається голосування за мапу...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>Номінацію мап вимкнено.</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>Номінація мап недоступна під час розминки.</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>Номінуйте мапу</value>
+  </data>
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} номінував {1}.</value>
+  </data>
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>Досягнуто максимальну кількість номінованих мап ({0}).</value>
+  </data>
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>Ваш голос автоматично віддано за номіновану вами мапу: {0}. Введіть !revote, щоб змінити його.</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>Голосування за мапу (RTV) завершено - результати</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>Голосування наприкінці мапи завершено - результати</value>
+  </data>
+  <data name="MapNotFound" xml:space="preserve">
+    <value>Немає доступної мапи, що відповідає '{0}'.</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>Немає доступних мап.</value>
+  </data>
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>Наступну мапу вже обрано: {0}.</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>Голосування за мапу вже триває.</value>
+  </data>
+  <data name="VoteStarted" xml:space="preserve">
+    <value>Голосуйте за наступну мапу! У вас {0} секунд.</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>Голосування за наступну мапу</value>
+  </data>
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>Ви проголосували за {0}.</value>
+  </data>
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0}: {1} голос(ів)</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>Ніхто не проголосував, наступну мапу обрано випадково.</value>
+  </data>
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>Наступна мапа: {0}.</value>
+  </data>
+  <data name="ChangingMap" xml:space="preserve">
+    <value>Зміна мапи на {0} через {1} секунд...</value>
+  </data>
+  <data name="NextMapIs" xml:space="preserve">
+    <value>Наступна мапа: {0}.</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>Наступну мапу буде обрано голосуванням.</value>
+  </data>
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} встановив наступну мапу: {1}.</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>Оберіть наступну мапу</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>Зараз немає голосування за мапу.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Ваш попередній голос видалено, проголосуйте знову!</value>
+  </data>
+</root>

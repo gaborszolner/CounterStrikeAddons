@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>Nincs jogosultságod ehhez a parancshoz.</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>Konfiguráció újratöltve!</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>A pályaváltó szavazás (RTV) ki van kapcsolva.</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>Bemelegítés alatt az RTV nem használható.</value>
+  </data>
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>Ezen a pályán már elindult a pályaváltó szavazás. ({0} szavazott, {1} szükséges)</value>
+  </data>
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>Már szavaztál a pályaváltásra ({0}/{1}).</value>
+  </data>
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} pályát váltana ({1}/{2}). Írd be: !rtv, ha csatlakoznál.</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>Az RTV sikeres! Indul a pályaszavazás...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>A pálya jelölés ki van kapcsolva.</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>Bemelegítés alatt nem lehet pályát jelölni.</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>Jelölj egy pályát</value>
+  </data>
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} jelölte: {1}.</value>
+  </data>
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>Elérted a jelölt pályák maximális számát ({0}).</value>
+  </data>
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>Automatikusan a jelölt pályádra szavaztál: {0}. Írd be: !revote, ha módosítanád.</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>Lezárult az RTV pályaszavazás - eredmények</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>Lezárult a pálya végi szavazás - eredmények</value>
+  </data>
+  <data name="MapNotFound" xml:space="preserve">
+    <value>Nincs elérhető pálya erre: '{0}'.</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>Nincs elérhető pálya.</value>
+  </data>
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>A következő pálya már eldőlt: {0}.</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>Már folyamatban van egy pályaszavazás.</value>
+  </data>
+  <data name="VoteStarted" xml:space="preserve">
+    <value>Szavazz a következő pályára! {0} másodperced van.</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>Szavazz a következő pályára</value>
+  </data>
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>Erre szavaztál: {0}.</value>
+  </data>
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0}: {1} szavazat</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>Senki nem szavazott, a következő pálya véletlenszerűen lett kiválasztva.</value>
+  </data>
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>A következő pálya: {0}.</value>
+  </data>
+  <data name="ChangingMap" xml:space="preserve">
+    <value>Pályaváltás erre: {0}, {1} másodperc múlva...</value>
+  </data>
+  <data name="NextMapIs" xml:space="preserve">
+    <value>Következő pálya: {0}.</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>A következő pályáról szavazás dönt.</value>
+  </data>
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} beállította a következő pályát: {1}.</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>Válaszd ki a következő pályát</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>Jelenleg nincs folyamatban pályaszavazás.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Az előző szavazatod törölve, szavazz újra!</value>
+  </data>
+</root>

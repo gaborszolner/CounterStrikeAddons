@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NoPermission" xml:space="preserve">
+    <value>Você não tem permissão para usar este comando.</value>
+  </data>
+  <data name="ConfigsReloaded" xml:space="preserve">
+    <value>Configurações recarregadas!</value>
+  </data>
+  <data name="RtvDisabled" xml:space="preserve">
+    <value>O rock the vote está desativado.</value>
+  </data>
+  <data name="RtvWarmupDisabled" xml:space="preserve">
+    <value>O rock the vote não está disponível durante o aquecimento.</value>
+  </data>
+  <data name="RtvAlreadyTriggered" xml:space="preserve">
+    <value>O rock the vote já foi ativado neste mapa. ({0} votos, {1} necessários)</value>
+  </data>
+  <data name="RtvAlreadyVoted" xml:space="preserve">
+    <value>Você já votou para trocar o mapa ({0}/{1}).</value>
+  </data>
+  <data name="RtvPlayerVoted" xml:space="preserve">
+    <value>{0} quer trocar o mapa ({1}/{2}). Digite !rtv para participar.</value>
+  </data>
+  <data name="RtvSuccess" xml:space="preserve">
+    <value>Rock the vote aprovado! Iniciando votação de mapa...</value>
+  </data>
+  <data name="NominateDisabled" xml:space="preserve">
+    <value>A nomeação de mapas está desativada.</value>
+  </data>
+  <data name="NominateWarmupDisabled" xml:space="preserve">
+    <value>A nomeação de mapas não está disponível durante o aquecimento.</value>
+  </data>
+  <data name="NominateMenuTitle" xml:space="preserve">
+    <value>Nomeie um mapa</value>
+  </data>
+  <data name="PlayerNominated" xml:space="preserve">
+    <value>{0} nomeou {1}.</value>
+  </data>
+  <data name="NominationLimitReached" xml:space="preserve">
+    <value>O número máximo de mapas nomeados ({0}) foi atingido.</value>
+  </data>
+  <data name="AutoVotedForNomination" xml:space="preserve">
+    <value>Seu voto foi dado automaticamente ao mapa que você nomeou: {0}. Digite !revote para mudar.</value>
+  </data>
+  <data name="RtvVoteResults" xml:space="preserve">
+    <value>Votação de mapa do rock the vote encerrada - resultados</value>
+  </data>
+  <data name="EndOfMapVoteResults" xml:space="preserve">
+    <value>Votação de fim de mapa encerrada - resultados</value>
+  </data>
+  <data name="MapNotFound" xml:space="preserve">
+    <value>Nenhum mapa disponível corresponde a '{0}'.</value>
+  </data>
+  <data name="NoMapsAvailable" xml:space="preserve">
+    <value>Nenhum mapa disponível.</value>
+  </data>
+  <data name="NextMapAlreadyDecided" xml:space="preserve">
+    <value>O próximo mapa já foi decidido: {0}.</value>
+  </data>
+  <data name="VoteInProgress" xml:space="preserve">
+    <value>Já existe uma votação de mapa em andamento.</value>
+  </data>
+  <data name="VoteStarted" xml:space="preserve">
+    <value>Vote no próximo mapa! Você tem {0} segundos.</value>
+  </data>
+  <data name="VoteMenuTitle" xml:space="preserve">
+    <value>Vote no próximo mapa</value>
+  </data>
+  <data name="YouVotedFor" xml:space="preserve">
+    <value>Você votou em {0}.</value>
+  </data>
+  <data name="VoteResult" xml:space="preserve">
+    <value>  {0}: {1} voto(s)</value>
+  </data>
+  <data name="NoVotes" xml:space="preserve">
+    <value>Ninguém votou, o próximo mapa será escolhido aleatoriamente.</value>
+  </data>
+  <data name="NextMapChosen" xml:space="preserve">
+    <value>O próximo mapa será {0}.</value>
+  </data>
+  <data name="ChangingMap" xml:space="preserve">
+    <value>Trocando para o mapa {0} em {1} segundos...</value>
+  </data>
+  <data name="NextMapIs" xml:space="preserve">
+    <value>Próximo mapa: {0}.</value>
+  </data>
+  <data name="NextMapNotDecided" xml:space="preserve">
+    <value>O próximo mapa será decidido por votação.</value>
+  </data>
+  <data name="NextMapSetByAdmin" xml:space="preserve">
+    <value>{0} definiu o próximo mapa: {1}.</value>
+  </data>
+  <data name="SetNextMapMenuTitle" xml:space="preserve">
+    <value>Escolha o próximo mapa</value>
+  </data>
+  <data name="NoActiveVote" xml:space="preserve">
+    <value>Não há votação de mapa em andamento.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Seu voto anterior foi removido, vote novamente!</value>
+  </data>
+</root>

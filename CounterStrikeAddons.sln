@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamFilter", "SpamFilter\Sp
 		{9C659BAD-54EA-4B22-B75C-5509A862D77B} = {9C659BAD-54EA-4B22-B75C-5509A862D77B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockTheVote", "RockTheVote\RockTheVote.csproj", "{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,18 @@ Global
 		{19B34B58-580E-4ECE-81EB-5B87ABF543F4}.Release|x64.Build.0 = Release|Any CPU
 		{19B34B58-580E-4ECE-81EB-5B87ABF543F4}.Release|x86.ActiveCfg = Release|Any CPU
 		{19B34B58-580E-4ECE-81EB-5B87ABF543F4}.Release|x86.Build.0 = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|x64.Build.0 = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Debug|x86.Build.0 = Debug|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|x64.ActiveCfg = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|x64.Build.0 = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|x86.ActiveCfg = Release|Any CPU
+		{ECC39E81-6127-4BD0-B0EC-C3B3BFC80448}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
