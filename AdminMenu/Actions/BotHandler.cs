@@ -1,13 +1,12 @@
 ﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Entities;
 using CounterStrikeSharp.API.Modules.Menu;
 
 namespace AdminMenu
 {
     public partial class AdminMenu : BasePlugin
     {
-        private void BotHandleAction(CCSPlayerController adminPlayer, ChatMenuOption option)
+        private void BotHandlerAction(CCSPlayerController adminPlayer, ChatMenuOption option)
         {
             var botMenu = new CenterHtmlMenu(Msg.Get("BotMenuTitle"), this);
 

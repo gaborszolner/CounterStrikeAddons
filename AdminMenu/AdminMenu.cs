@@ -25,8 +25,9 @@ namespace AdminMenu
         private static string _adminsFilePath = string.Empty;
         private static string _bannedFilePath = string.Empty;
         private static string _weaponRestrictFilePath = string.Empty;
-        private string _playerStatDirectory => Path.Combine(ModuleDirectory, "..", "GameStatistic");
-        private string _playerStatFileFullPath => Path.Combine(_playerStatDirectory, StatisticHelper.PlayerStatFileName);
+        private string _statDirectory => Path.Combine(ModuleDirectory, "..", "GameStatistic");
+        private string _playerStatFileFullPath => Path.Combine(_statDirectory, StatisticHelper.PlayerStatFileName);
+        private string _mapStatFileFullPath => Path.Combine(_statDirectory, StatisticHelper.MapStatFileName);
         private static string _mapListFilePath = string.Empty;
         private static bool _isWarmup = false;
         private static Dictionary<string, WeaponRestrictEntry>? _weaponRestrictEntry;
@@ -53,6 +54,7 @@ namespace AdminMenu
             RegisterEventHandler<EventWarmupEnd>(OnWarmupEnd);
             RegisterEventHandler<EventItemPickup>(OnItemPickup);
             RegisterEventHandler<EventItemEquip>(OnItemEquip);
+            RegisterEventHandler<EventRoundStart>(OnRoundStart);
             AddCommandListener("!admin", (player, args) => { ShowMainMenu(player); return HookResult.Continue; });
 
 
@@ -118,7 +120,7 @@ namespace AdminMenu
             _isWarmup = false;
 
             var storedStats =
-                StatisticHelper.LoadMonthsStats(_playerStatDirectory, _config.DateRangeForStatisticsInMonth)
+                StatisticHelper.LoadMonthsStats(_statDirectory, _config.DateRangeForStatisticsInMonth)
                 ?? [];
 
             double ctSumScore = Math.Round(StatisticHelper.GetSumScores(storedStats, PlayerHelper.GetAllCounterTerrorist()), 1);
@@ -137,7 +139,7 @@ namespace AdminMenu
             {
                 Server.PrintToChatAll($"{PluginPrefix} {ChatColors.Yellow}{Msg.Get("AutoShuffleCurrentDiff")} {ChatColors.Red}{currentDifferentPercentage:F2}%{ChatColors.Yellow}, {Msg.Get("AutoShuffleActivated")}");
                 TeamShuffleAction(null, null);
-                StatisticHelper.PrintTeamStat(StatisticHelper.LoadMonthsStats(_playerStatDirectory, _config.DateRangeForStatisticsInMonth));
+                StatisticHelper.PrintTeamStat(StatisticHelper.LoadMonthsStats(_statDirectory, _config.DateRangeForStatisticsInMonth));
             }
 
             return HookResult.Continue;
@@ -237,6 +239,11 @@ namespace AdminMenu
                 _pendingRename.ContainsKey(player.AuthorizedSteamID.SteamId2))
             {
                 RenamePlayer(player, @event.Text.Trim(), _pendingRename[player.AuthorizedSteamID.SteamId2]);
+                return HookResult.Handled;
+            }
+
+            if (player is not null && @event?.Text is not null && TryHandleAddMapInput(player, @event.Text))
+            {
                 return HookResult.Handled;
             }
 
@@ -463,10 +470,14 @@ namespace AdminMenu
                 {
                     mainMenu.AddMenuOption(Msg.Get("MenuTeamShuffle"), TeamShuffleAction);
                 }
+                if (File.Exists(_mapListFilePath))
+                {
+                    mainMenu.AddMenuOption(Msg.Get("MenuMapHandler"), MapHandlerAction);
+                }
             }
             if (adminLevel > 0)
             {
-                mainMenu.AddMenuOption(Msg.Get("MenuBotHandle"), BotHandleAction);
+                mainMenu.AddMenuOption(Msg.Get("MenuBotHandle"), BotHandlerAction);
             }
 
             MenuManager.OpenCenterHtmlMenu(this, adminPlayer, mainMenu);

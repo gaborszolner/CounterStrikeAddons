@@ -110,4 +110,39 @@
   <data name="VoteOptionResult" xml:space="preserve"><value>{0} : {1} votes</value></data>
   <data name="VoteTie" xml:space="preserve"><value>Égalité : {0}</value></data>
   <data name="VoteWinner" xml:space="preserve"><value>Gagnant : {0}</value></data>
+  <data name="MenuMapHandler" xml:space="preserve"><value>Gestion des cartes</value></data>
+  <data name="MapMenuTitle" xml:space="preserve"><value>Gestion des cartes</value></data>
+  <data name="AddMap" xml:space="preserve"><value>Ajouter une carte</value></data>
+  <data name="DeleteMap" xml:space="preserve"><value>Supprimer une carte</value></data>
+  <data name="SortMapsByName" xml:space="preserve"><value>Trier les cartes par nom</value></data>
+  <data name="SortMapsByUsage" xml:space="preserve"><value>Trier les cartes par utilisation</value></data>
+  <data name="CleanMapFiles" xml:space="preserve"><value>Nettoyer les fichiers de cartes</value></data>
+  <data name="AddMapStartError" xml:space="preserve"><value>Impossible d'ajouter une carte : votre SteamID n'est pas autoris?.</value></data>
+  <data name="AddMapNamePrompt" xml:space="preserve"><value>Tapez le nom de la carte dans le chat dans les {0} secondes. Tapez !cancel pour annuler.</value></data>
+  <data name="AddMapIdPrompt" xml:space="preserve"><value>Tapez l'ID workshop de {0} dans le chat dans les {1} secondes, ou - s'il ne s'agit pas d'une carte workshop. Tapez !cancel pour annuler.</value></data>
+  <data name="AddMapInvalidName" xml:space="preserve"><value>Nom de carte invalide. Il ne doit contenir ni espaces ni ':'.</value></data>
+  <data name="AddMapAlreadyExists" xml:space="preserve"><value>La carte {0} est d?j? dans la liste des cartes.</value></data>
+  <data name="AddMapInvalidId" xml:space="preserve"><value>ID workshop invalide. Il ne doit contenir que des chiffres, ou tapez - pour ignorer.</value></data>
+  <data name="AddMapCancelled" xml:space="preserve"><value>Ajout de carte annul?.</value></data>
+  <data name="AddMapExpired" xml:space="preserve"><value>La demande d'ajout de carte a expir?.</value></data>
+  <data name="AddMapSuccess" xml:space="preserve"><value>Carte ajout?e ? la liste : {0}</value></data>
+  <data name="AddMapError" xml:space="preserve"><value>Erreur lors de l'ajout de la carte : {0}</value></data>
+  <data name="DeleteMapTitle" xml:space="preserve"><value>Choisissez la carte ? supprimer</value></data>
+  <data name="DeleteMapNoMaps" xml:space="preserve"><value>La liste des cartes est vide.</value></data>
+  <data name="DeleteMapConfirm" xml:space="preserve"><value>Supprimer {0} ?</value></data>
+  <data name="Yes" xml:space="preserve"><value>Oui</value></data>
+  <data name="No" xml:space="preserve"><value>Non</value></data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>Impossible de supprimer {0} car c'est la carte actuelle.</value></data>
+  <data name="DeleteMapSuccess" xml:space="preserve"><value>Carte {0} supprim?e.</value></data>
+  <data name="DeleteMapError" xml:space="preserve"><value>Erreur lors de la suppression de la carte : {0}</value></data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>Liste des cartes tri?e par nom.</value></data>
+  <data name="SortMapsError" xml:space="preserve"><value>Erreur lors du tri de la liste des cartes : {0}</value></data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>Impossible de nettoyer les fichiers de cartes : liste des cartes ou dossier workshop introuvable.</value></data>
+  <data name="CleanMapFilesNothing" xml:space="preserve"><value>Aucun fichier de carte inutilis? trouv?.</value></data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>Supprimer {0} dossier(s) de cartes inutilis?(s) ?</value></data>
+  <data name="CleanMapFilesDone" xml:space="preserve"><value>Nettoyage termin? : {0} supprim?(s), {1} ?chec(s).</value></data>
+  <data name="SortMapsByUsageOn" xml:space="preserve"><value>ON</value></data>
+  <data name="SortMapsByUsageOff" xml:space="preserve"><value>OFF</value></data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Tri par utilisation activ?. La liste des cartes sera tri?e ? chaque d?but de manche (les moins r?cemment jou?es en premier).</value></data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Tri par utilisation d?sactiv?.</value></data>
 </root>

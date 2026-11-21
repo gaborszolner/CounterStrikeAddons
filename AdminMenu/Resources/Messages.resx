@@ -380,5 +380,121 @@
   <data name="VoteWinner" xml:space="preserve">
     <value>Winner: {0}</value>
   </data>
-
+  <data name="MenuMapHandler" xml:space="preserve">
+    <value>Map handler</value>
+  </data>
+  <data name="MapMenuTitle" xml:space="preserve">
+    <value>Map management</value>
+  </data>
+  <data name="AddMap" xml:space="preserve">
+    <value>Add map</value>
+  </data>
+  <data name="DeleteMap" xml:space="preserve">
+    <value>Delete map</value>
+  </data>
+  <data name="SortMapsByName" xml:space="preserve">
+    <value>Sort maps by name</value>
+  </data>
+  <data name="SortMapsByUsage" xml:space="preserve">
+    <value>Sort maps by usage</value>
+  </data>
+  <data name="CleanMapFiles" xml:space="preserve">
+    <value>Clean map files</value>
+  </data>
+  <data name="AddMapStartError" xml:space="preserve">
+    <value>Cannot start adding a map: your SteamID is not authorized.</value>
+  </data>
+  <!-- {0}=timeout seconds -->
+  <data name="AddMapNamePrompt" xml:space="preserve">
+    <value>Type the map name in chat within {0} seconds. Type !cancel to abort.</value>
+  </data>
+  <!-- {0}=map name, {1}=timeout seconds -->
+  <data name="AddMapIdPrompt" xml:space="preserve">
+    <value>Type the workshop ID for {0} in chat within {1} seconds, or - if it is not a workshop map. Type !cancel to abort.</value>
+  </data>
+  <data name="AddMapInvalidName" xml:space="preserve">
+    <value>Invalid map name. It must not contain spaces or ':'.</value>
+  </data>
+  <!-- {0}=map name -->
+  <data name="AddMapAlreadyExists" xml:space="preserve">
+    <value>Map {0} is already in the map list.</value>
+  </data>
+  <data name="AddMapInvalidId" xml:space="preserve">
+    <value>Invalid workshop ID. It must contain only digits, or type - to skip.</value>
+  </data>
+  <data name="AddMapCancelled" xml:space="preserve">
+    <value>Adding map cancelled.</value>
+  </data>
+  <data name="AddMapExpired" xml:space="preserve">
+    <value>Adding map request expired.</value>
+  </data>
+  <!-- {0}=map list entry -->
+  <data name="AddMapSuccess" xml:space="preserve">
+    <value>Map added to the map list: {0}</value>
+  </data>
+  <!-- {0}=error message -->
+  <data name="AddMapError" xml:space="preserve">
+    <value>Error adding map: {0}</value>
+  </data>
+  <data name="DeleteMapTitle" xml:space="preserve">
+    <value>Select map to delete</value>
+  </data>
+  <data name="DeleteMapNoMaps" xml:space="preserve">
+    <value>The map list is empty.</value>
+  </data>
+  <!-- {0}=map name -->
+  <data name="DeleteMapConfirm" xml:space="preserve">
+    <value>Delete {0}?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <!-- {0}=map name -->
+  <data name="DeleteMapIsCurrent" xml:space="preserve">
+    <value>Cannot delete {0} because it is the current map.</value>
+  </data>
+  <!-- {0}=map name -->
+  <data name="DeleteMapSuccess" xml:space="preserve">
+    <value>Map {0} deleted.</value>
+  </data>
+  <!-- {0}=error message -->
+  <data name="DeleteMapError" xml:space="preserve">
+    <value>Error deleting map: {0}</value>
+  </data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve">
+    <value>Map list sorted by name.</value>
+  </data>
+  <!-- {0}=error message -->
+  <data name="SortMapsError" xml:space="preserve">
+    <value>Error sorting map list: {0}</value>
+  </data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve">
+    <value>Cannot clean map files: map list or workshop folder not found.</value>
+  </data>
+  <data name="CleanMapFilesNothing" xml:space="preserve">
+    <value>No unused map files found.</value>
+  </data>
+  <!-- {0}=folder count -->
+  <data name="CleanMapFilesConfirm" xml:space="preserve">
+    <value>Delete {0} unused map folder(s)?</value>
+  </data>
+  <!-- {0}=deleted count, {1}=failed count -->
+  <data name="CleanMapFilesDone" xml:space="preserve">
+    <value>Map file cleanup done: {0} deleted, {1} failed.</value>
+  </data>
+  <data name="SortMapsByUsageOn" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="SortMapsByUsageOff" xml:space="preserve">
+    <value>OFF</value>
+  </data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve">
+    <value>Sort maps by usage enabled. The map list will be sorted at each round start (least recently played first).</value>
+  </data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve">
+    <value>Sort maps by usage disabled.</value>
+  </data>
 </root>

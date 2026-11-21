@@ -11,7 +11,7 @@ namespace AdminMenu
     {
         private void TeamShuffleAction(CCSPlayerController? adminPlayer, ChatMenuOption? option)
         {
-            var statEntry = StatisticHelper.LoadMonthsStats(_playerStatDirectory, _config.DateRangeForStatisticsInMonth);
+            var statEntry = StatisticHelper.LoadMonthsStats(_statDirectory, _config.DateRangeForStatisticsInMonth);
 
             if (statEntry is null || statEntry.Count == 0)
             {

@@ -110,4 +110,39 @@
   <data name="VoteOptionResult" xml:space="preserve"><value>{0}: {1} votos</value></data>
   <data name="VoteTie" xml:space="preserve"><value>Empate: {0}</value></data>
   <data name="VoteWinner" xml:space="preserve"><value>Vencedor: {0}</value></data>
+  <data name="MenuMapHandler" xml:space="preserve"><value>Gerenciador de mapas</value></data>
+  <data name="MapMenuTitle" xml:space="preserve"><value>Gerenciamento de mapas</value></data>
+  <data name="AddMap" xml:space="preserve"><value>Adicionar mapa</value></data>
+  <data name="DeleteMap" xml:space="preserve"><value>Excluir mapa</value></data>
+  <data name="SortMapsByName" xml:space="preserve"><value>Ordenar mapas por nome</value></data>
+  <data name="SortMapsByUsage" xml:space="preserve"><value>Ordenar mapas por uso</value></data>
+  <data name="CleanMapFiles" xml:space="preserve"><value>Limpar arquivos de mapas</value></data>
+  <data name="AddMapStartError" xml:space="preserve"><value>N?o ? poss?vel adicionar mapa: seu SteamID n?o est? autorizado.</value></data>
+  <data name="AddMapNamePrompt" xml:space="preserve"><value>Digite o nome do mapa no chat em {0} segundos. Digite !cancel para cancelar.</value></data>
+  <data name="AddMapIdPrompt" xml:space="preserve"><value>Digite o ID do workshop para {0} no chat em {1} segundos, ou - se n?o for um mapa do workshop. Digite !cancel para cancelar.</value></data>
+  <data name="AddMapInvalidName" xml:space="preserve"><value>Nome de mapa inv?lido. N?o pode conter espa?os nem ':'.</value></data>
+  <data name="AddMapAlreadyExists" xml:space="preserve"><value>O mapa {0} j? est? na lista de mapas.</value></data>
+  <data name="AddMapInvalidId" xml:space="preserve"><value>ID do workshop inv?lido. Deve conter apenas d?gitos, ou digite - para pular.</value></data>
+  <data name="AddMapCancelled" xml:space="preserve"><value>Adi??o de mapa cancelada.</value></data>
+  <data name="AddMapExpired" xml:space="preserve"><value>Solicita??o de adi??o de mapa expirada.</value></data>
+  <data name="AddMapSuccess" xml:space="preserve"><value>Mapa adicionado ? lista de mapas: {0}</value></data>
+  <data name="AddMapError" xml:space="preserve"><value>Erro ao adicionar mapa: {0}</value></data>
+  <data name="DeleteMapTitle" xml:space="preserve"><value>Selecione o mapa para excluir</value></data>
+  <data name="DeleteMapNoMaps" xml:space="preserve"><value>A lista de mapas est? vazia.</value></data>
+  <data name="DeleteMapConfirm" xml:space="preserve"><value>Excluir {0}?</value></data>
+  <data name="Yes" xml:space="preserve"><value>Sim</value></data>
+  <data name="No" xml:space="preserve"><value>N?o</value></data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>N?o ? poss?vel excluir {0} porque ? o mapa atual.</value></data>
+  <data name="DeleteMapSuccess" xml:space="preserve"><value>Mapa {0} exclu?do.</value></data>
+  <data name="DeleteMapError" xml:space="preserve"><value>Erro ao excluir mapa: {0}</value></data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>Lista de mapas ordenada por nome.</value></data>
+  <data name="SortMapsError" xml:space="preserve"><value>Erro ao ordenar a lista de mapas: {0}</value></data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>N?o ? poss?vel limpar os arquivos de mapas: lista de mapas ou pasta do workshop n?o encontrada.</value></data>
+  <data name="CleanMapFilesNothing" xml:space="preserve"><value>Nenhum arquivo de mapa n?o utilizado encontrado.</value></data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>Excluir {0} pasta(s) de mapas n?o utilizada(s)?</value></data>
+  <data name="CleanMapFilesDone" xml:space="preserve"><value>Limpeza conclu?da: {0} exclu?da(s), {1} com falha.</value></data>
+  <data name="SortMapsByUsageOn" xml:space="preserve"><value>LIGADO</value></data>
+  <data name="SortMapsByUsageOff" xml:space="preserve"><value>DESLIGADO</value></data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Ordena??o por uso ativada. A lista de mapas ser? ordenada a cada in?cio de rodada (os jogados h? mais tempo primeiro).</value></data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Ordena??o por uso desativada.</value></data>
 </root>

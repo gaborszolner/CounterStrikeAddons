@@ -329,4 +329,109 @@
   <data name="VoteWinner" xml:space="preserve">
     <value>Győztes: {0}</value>
   </data>
+  <data name="MenuMapHandler" xml:space="preserve">
+    <value>Pályakezelö</value>
+  </data>
+  <data name="MapMenuTitle" xml:space="preserve">
+    <value>Pályak kezelése</value>
+  </data>
+  <data name="AddMap" xml:space="preserve">
+    <value>Pálya hozzáadása</value>
+  </data>
+  <data name="DeleteMap" xml:space="preserve">
+    <value>Pálya törlése</value>
+  </data>
+  <data name="SortMapsByName" xml:space="preserve">
+    <value>Pályak rendezése név szerint</value>
+  </data>
+  <data name="SortMapsByUsage" xml:space="preserve">
+    <value>Pályak rendezése használat szerint</value>
+  </data>
+  <data name="CleanMapFiles" xml:space="preserve">
+    <value>Pályafájlok takarítása</value>
+  </data>
+  <data name="AddMapStartError" xml:space="preserve">
+    <value>Nem lehet pályát hozzáadni: a SteamID-d nincs hitelesítve.</value>
+  </data>
+  <data name="AddMapNamePrompt" xml:space="preserve">
+    <value>Írd be a pálya nevét chatben {0} másodpercen belül. Megszakítás: !cancel.</value>
+  </data>
+  <data name="AddMapIdPrompt" xml:space="preserve">
+    <value>Írd be a(z) {0} workshop azonosítóját chatben {1} másodpercen belül, vagy -, ha nem workshop pálya. Megszakítás: !cancel.</value>
+  </data>
+  <data name="AddMapInvalidName" xml:space="preserve">
+    <value>Érvénytelen pályanév. Nem tartalmazhat szóközt vagy ':' karaktert.</value>
+  </data>
+  <data name="AddMapAlreadyExists" xml:space="preserve">
+    <value>A(z) {0} pálya már szerepel a pályalistán.</value>
+  </data>
+  <data name="AddMapInvalidId" xml:space="preserve">
+    <value>Érvénytelen workshop azonosító. Csak számjegyeket tartalmazhat, vagy írj - jelet a kihagyáshoz.</value>
+  </data>
+  <data name="AddMapCancelled" xml:space="preserve">
+    <value>Pálya hozzáadása megszakítva.</value>
+  </data>
+  <data name="AddMapExpired" xml:space="preserve">
+    <value>A pálya hozzáadási kérés lejárt.</value>
+  </data>
+  <data name="AddMapSuccess" xml:space="preserve">
+    <value>Pálya hozzáadva a pályalistához: {0}</value>
+  </data>
+  <data name="AddMapError" xml:space="preserve">
+    <value>Hiba a pálya hozzáadásakor: {0}</value>
+  </data>
+  <data name="DeleteMapTitle" xml:space="preserve">
+    <value>V?laszd ki a t?rlend? p?ly?t</value>
+  </data>
+  <data name="DeleteMapNoMaps" xml:space="preserve">
+    <value>A p?lyalista ?res.</value>
+  </data>
+  <data name="DeleteMapConfirm" xml:space="preserve">
+    <value>T?rl?d: {0}?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve">
+    <value>A(z) {0} nem t?r?lhet?, mert ez az aktu?lis p?lya.</value>
+  </data>
+  <data name="DeleteMapSuccess" xml:space="preserve">
+    <value>A(z) {0} p?lya t?r?lve.</value>
+  </data>
+  <data name="DeleteMapError" xml:space="preserve">
+    <value>Hiba a p?lya t?rl?sekor: {0}</value>
+  </data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve">
+    <value>P?lyalista n?v szerint rendezve.</value>
+  </data>
+  <data name="SortMapsError" xml:space="preserve">
+    <value>Hiba a p?lyalista rendez?sekor: {0}</value>
+  </data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve">
+    <value>A p?lyaf?jlok nem takar?that?k: a p?lyalista vagy a workshop mappa nem tal?lhat?.</value>
+  </data>
+  <data name="CleanMapFilesNothing" xml:space="preserve">
+    <value>Nincs nem haszn?lt p?lyaf?jl.</value>
+  </data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve">
+    <value>T?rl?d a(z) {0} nem haszn?lt p?lyamapp?t?</value>
+  </data>
+  <data name="CleanMapFilesDone" xml:space="preserve">
+    <value>P?lyaf?jlok takar?t?sa k?sz: {0} t?r?lve, {1} sikertelen.</value>
+  </data>
+  <data name="SortMapsByUsageOn" xml:space="preserve">
+    <value>BE</value>
+  </data>
+  <data name="SortMapsByUsageOff" xml:space="preserve">
+    <value>KI</value>
+  </data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve">
+    <value>Haszn?lat szerinti rendez?s bekapcsolva. A p?lyalista minden k?r elej?n rendezve lesz (a legr?gebben j?tszott el?l).</value>
+  </data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve">
+    <value>Haszn?lat szerinti rendez?s kikapcsolva.</value>
+  </data>
 </root>
