@@ -2,7 +2,6 @@
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Menu;
 using CounterStrikeSharp.API.Modules.Utils;
-using Microsoft.Extensions.Logging;
 using SharedLibrary;
 
 namespace QuickDefuse
