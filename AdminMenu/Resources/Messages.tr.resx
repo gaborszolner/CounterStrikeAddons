@@ -110,39 +110,40 @@
   <data name="VoteOptionResult" xml:space="preserve"><value>{0}: {1} oy</value></data>
   <data name="VoteTie" xml:space="preserve"><value>Beraberlik: {0}</value></data>
   <data name="VoteWinner" xml:space="preserve"><value>Kazanan: {0}</value></data>
-  <data name="MenuMapHandler" xml:space="preserve"><value>Harita y?neticisi</value></data>
-  <data name="MapMenuTitle" xml:space="preserve"><value>Harita y?netimi</value></data>
+  <data name="MenuMapHandler" xml:space="preserve"><value>Harita yöneticisi</value></data>
+  <data name="MapMenuTitle" xml:space="preserve"><value>Harita yönetimi</value></data>
   <data name="AddMap" xml:space="preserve"><value>Harita ekle</value></data>
   <data name="DeleteMap" xml:space="preserve"><value>Harita sil</value></data>
-  <data name="SortMapsByName" xml:space="preserve"><value>Haritalar? ada g?re s?rala</value></data>
-  <data name="SortMapsByUsage" xml:space="preserve"><value>Haritalar? kullan?ma g?re s?rala</value></data>
-  <data name="CleanMapFiles" xml:space="preserve"><value>Harita dosyalar?n? temizle</value></data>
-  <data name="AddMapStartError" xml:space="preserve"><value>Harita eklenemiyor: SteamID'niz yetkilendirilmemi?.</value></data>
-  <data name="AddMapNamePrompt" xml:space="preserve"><value>{0} saniye i?inde sohbete harita ad?n? yaz?n. ?ptal i?in !cancel yaz?n.</value></data>
-  <data name="AddMapIdPrompt" xml:space="preserve"><value>{1} saniye i?inde sohbete {0} i?in workshop ID'sini yaz?n veya workshop haritas? de?ilse - yaz?n. ?ptal i?in !cancel yaz?n.</value></data>
-  <data name="AddMapInvalidName" xml:space="preserve"><value>Ge?ersiz harita ad?. Bo?luk veya ':' i?ermemelidir.</value></data>
-  <data name="AddMapAlreadyExists" xml:space="preserve"><value>{0} haritas? zaten harita listesinde.</value></data>
-  <data name="AddMapInvalidId" xml:space="preserve"><value>Ge?ersiz workshop ID'si. Yaln?zca rakam i?ermeli veya atlamak i?in - yaz?n.</value></data>
+  <data name="SortMapsByName" xml:space="preserve"><value>Haritaları ada göre sırala</value></data>
+  <data name="SortMapsByUsage" xml:space="preserve"><value>Haritaları kullanıma göre sırala</value></data>
+  <data name="CleanMapFiles" xml:space="preserve"><value>Harita dosyalarını temizle</value></data>
+  <data name="AddMapStartError" xml:space="preserve"><value>Harita eklenemiyor: SteamID'niz yetkilendirilmemiş.</value></data>
+  <data name="AddMapNamePrompt" xml:space="preserve"><value>{0} saniye içinde sohbete harita adını yazın. İptal için !cancel yazın.</value></data>
+  <data name="AddMapIdPrompt" xml:space="preserve"><value>{1} saniye içinde sohbete {0} için workshop ID'sini yazın veya workshop haritası değilse - yazın. İptal için !cancel yazın.</value></data>
+  <data name="AddMapInvalidName" xml:space="preserve"><value>Geçersiz harita adı. Boşluk veya ':' içermemelidir.</value></data>
+  <data name="AddMapAlreadyExists" xml:space="preserve"><value>{0} haritası zaten harita listesinde.</value></data>
+  <data name="AddMapInvalidId" xml:space="preserve"><value>Geçersiz workshop ID'si. Yalnızca rakam içermeli veya atlamak için - yazın.</value></data>
   <data name="AddMapCancelled" xml:space="preserve"><value>Harita ekleme iptal edildi.</value></data>
-  <data name="AddMapExpired" xml:space="preserve"><value>Harita ekleme iste?inin s?resi doldu.</value></data>
+  <data name="AddMapExpired" xml:space="preserve"><value>Harita ekleme isteğinin süresi doldu.</value></data>
   <data name="AddMapSuccess" xml:space="preserve"><value>Harita listeye eklendi: {0}</value></data>
   <data name="AddMapError" xml:space="preserve"><value>Harita eklenirken hata: {0}</value></data>
-  <data name="DeleteMapTitle" xml:space="preserve"><value>Silinecek haritay? se?in</value></data>
-  <data name="DeleteMapNoMaps" xml:space="preserve"><value>Harita listesi bo?.</value></data>
+  <data name="DeleteMapTitle" xml:space="preserve"><value>Silinecek haritayı seçin</value></data>
+  <data name="DeleteMapNoMaps" xml:space="preserve"><value>Harita listesi boş.</value></data>
   <data name="DeleteMapConfirm" xml:space="preserve"><value>{0} silinsin mi?</value></data>
   <data name="Yes" xml:space="preserve"><value>Evet</value></data>
-  <data name="No" xml:space="preserve"><value>Hay?r</value></data>
-  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>{0} mevcut harita oldu?u i?in silinemez.</value></data>
-  <data name="DeleteMapSuccess" xml:space="preserve"><value>{0} haritas? silindi.</value></data>
+  <data name="No" xml:space="preserve"><value>Hayır</value></data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>{0} mevcut harita olduğu için silinemez.</value></data>
+  <data name="DeleteMapSuccess" xml:space="preserve"><value>{0} haritası silindi.</value></data>
   <data name="DeleteMapError" xml:space="preserve"><value>Harita silinirken hata: {0}</value></data>
-  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>Harita listesi ada g?re s?raland?.</value></data>
-  <data name="SortMapsError" xml:space="preserve"><value>Harita listesi s?ralan?rken hata: {0}</value></data>
-  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>Harita dosyalar? temizlenemiyor: harita listesi veya workshop klas?r? bulunamad?.</value></data>
-  <data name="CleanMapFilesNothing" xml:space="preserve"><value>Kullan?lmayan harita dosyas? bulunamad?.</value></data>
-  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>{0} kullan?lmayan harita klas?r? silinsin mi?</value></data>
-  <data name="CleanMapFilesDone" xml:space="preserve"><value>Temizlik tamamland?: {0} silindi, {1} ba?ar?s?z.</value></data>
-  <data name="SortMapsByUsageOn" xml:space="preserve"><value>A?IK</value></data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>Harita listesi ada göre sıralandı.</value></data>
+  <data name="SortMapsError" xml:space="preserve"><value>Harita listesi sıralanırken hata: {0}</value></data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>Harita dosyaları temizlenemiyor: harita listesi veya workshop klasörü bulunamadı.</value></data>
+  <data name="CleanMapFilesNothing" xml:space="preserve"><value>Kullanılmayan harita dosyası bulunamadı.</value></data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>{0} kullanılmayan harita klasörü silinsin mi?</value></data>
+  <data name="CleanMapFilesDone" xml:space="preserve"><value>Temizlik tamamlandı: {0} silindi, {1} başarısız.</value></data>
+  <data name="SortMapsByUsageOn" xml:space="preserve"><value>AÇIK</value></data>
   <data name="SortMapsByUsageOff" xml:space="preserve"><value>KAPALI</value></data>
-  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Kullan?ma g?re s?ralama etkin. Harita listesi her raunt ba??nda s?ralanacak (en uzun s?redir oynanmayan ?nce).</value></data>
-  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Kullan?ma g?re s?ralama devre d???.</value></data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Kullanıma göre sıralama etkin. Harita listesi her raunt başında sıralanacak (en uzun süredir oynanmayan önce).</value></data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Kullanıma göre sıralama devre dışı.</value></data>
+  <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Silindi: {0} (ID: {1})</value></data>
 </root>

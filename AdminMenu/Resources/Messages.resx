@@ -497,4 +497,8 @@
   <data name="SortMapsByUsageDisabled" xml:space="preserve">
     <value>Sort maps by usage disabled.</value>
   </data>
+  <!-- {0}=map name, {1}=workshop ID -->
+  <data name="CleanMapFilesDeletedMap" xml:space="preserve">
+    <value>Deleted: {0} (ID: {1})</value>
+  </data>
 </root>

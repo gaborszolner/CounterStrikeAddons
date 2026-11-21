@@ -110,39 +110,40 @@
   <data name="VoteOptionResult" xml:space="preserve"><value>{0}：{1} 票</value></data>
   <data name="VoteTie" xml:space="preserve"><value>平局：{0}</value></data>
   <data name="VoteWinner" xml:space="preserve"><value>获胜者：{0}</value></data>
-  <data name="MenuMapHandler" xml:space="preserve"><value>????</value></data>
-  <data name="MapMenuTitle" xml:space="preserve"><value>????</value></data>
-  <data name="AddMap" xml:space="preserve"><value>????</value></data>
-  <data name="DeleteMap" xml:space="preserve"><value>????</value></data>
-  <data name="SortMapsByName" xml:space="preserve"><value>???????</value></data>
-  <data name="SortMapsByUsage" xml:space="preserve"><value>?????????</value></data>
-  <data name="CleanMapFiles" xml:space="preserve"><value>??????</value></data>
-  <data name="AddMapStartError" xml:space="preserve"><value>????????? SteamID ??????</value></data>
-  <data name="AddMapNamePrompt" xml:space="preserve"><value>??{0}??????????????? !cancel ???</value></data>
-  <data name="AddMapIdPrompt" xml:space="preserve"><value>??{1}????????{0}????? ID?????????????? -??? !cancel ???</value></data>
-  <data name="AddMapInvalidName" xml:space="preserve"><value>?????????????? ':'?</value></data>
-  <data name="AddMapAlreadyExists" xml:space="preserve"><value>??{0}????????</value></data>
-  <data name="AddMapInvalidId" xml:space="preserve"><value>???? ID ????????????? - ???</value></data>
-  <data name="AddMapCancelled" xml:space="preserve"><value>????????</value></data>
-  <data name="AddMapExpired" xml:space="preserve"><value>??????????</value></data>
-  <data name="AddMapSuccess" xml:space="preserve"><value>???????????{0}</value></data>
-  <data name="AddMapError" xml:space="preserve"><value>????????{0}</value></data>
-  <data name="DeleteMapTitle" xml:space="preserve"><value>????????</value></data>
-  <data name="DeleteMapNoMaps" xml:space="preserve"><value>???????</value></data>
-  <data name="DeleteMapConfirm" xml:space="preserve"><value>??{0}?</value></data>
-  <data name="Yes" xml:space="preserve"><value>?</value></data>
-  <data name="No" xml:space="preserve"><value>?</value></data>
-  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>????{0}??????????</value></data>
-  <data name="DeleteMapSuccess" xml:space="preserve"><value>??{0}????</value></data>
-  <data name="DeleteMapError" xml:space="preserve"><value>????????{0}</value></data>
-  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>???????????</value></data>
-  <data name="SortMapsError" xml:space="preserve"><value>??????????{0}</value></data>
-  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>?????????????????????????</value></data>
-  <data name="CleanMapFilesNothing" xml:space="preserve"><value>????????????</value></data>
-  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>??{0}???????????</value></data>
-  <data name="CleanMapFilesDone" xml:space="preserve"><value>????????{0}????{1}??</value></data>
-  <data name="SortMapsByUsageOn" xml:space="preserve"><value>?</value></data>
-  <data name="SortMapsByUsageOff" xml:space="preserve"><value>?</value></data>
-  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>?????????????????????????????????</value></data>
-  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>?????????</value></data>
+  <data name="MenuMapHandler" xml:space="preserve"><value>地图管理</value></data>
+  <data name="MapMenuTitle" xml:space="preserve"><value>地图管理</value></data>
+  <data name="AddMap" xml:space="preserve"><value>添加地图</value></data>
+  <data name="DeleteMap" xml:space="preserve"><value>删除地图</value></data>
+  <data name="SortMapsByName" xml:space="preserve"><value>按名称排序地图</value></data>
+  <data name="SortMapsByUsage" xml:space="preserve"><value>按使用次数排序地图</value></data>
+  <data name="CleanMapFiles" xml:space="preserve"><value>清理地图文件</value></data>
+  <data name="AddMapStartError" xml:space="preserve"><value>无法添加地图：你的 SteamID 未通过验证。</value></data>
+  <data name="AddMapNamePrompt" xml:space="preserve"><value>请在{0}秒内在聊天中输入地图名称。输入 !cancel 取消。</value></data>
+  <data name="AddMapIdPrompt" xml:space="preserve"><value>请在{1}秒内在聊天中输入{0}的创意工坊 ID，如果不是创意工坊地图请输入 -。输入 !cancel 取消。</value></data>
+  <data name="AddMapInvalidName" xml:space="preserve"><value>地图名称无效，不能包含空格或 ':'。</value></data>
+  <data name="AddMapAlreadyExists" xml:space="preserve"><value>地图{0}已在地图列表中。</value></data>
+  <data name="AddMapInvalidId" xml:space="preserve"><value>创意工坊 ID 无效，只能包含数字，或输入 - 跳过。</value></data>
+  <data name="AddMapCancelled" xml:space="preserve"><value>已取消添加地图。</value></data>
+  <data name="AddMapExpired" xml:space="preserve"><value>添加地图请求已过期。</value></data>
+  <data name="AddMapSuccess" xml:space="preserve"><value>地图已添加到地图列表：{0}</value></data>
+  <data name="AddMapError" xml:space="preserve"><value>添加地图时出错：{0}</value></data>
+  <data name="DeleteMapTitle" xml:space="preserve"><value>选择要删除的地图</value></data>
+  <data name="DeleteMapNoMaps" xml:space="preserve"><value>地图列表为空。</value></data>
+  <data name="DeleteMapConfirm" xml:space="preserve"><value>删除{0}？</value></data>
+  <data name="Yes" xml:space="preserve"><value>是</value></data>
+  <data name="No" xml:space="preserve"><value>否</value></data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>无法删除{0}，因为它是当前地图。</value></data>
+  <data name="DeleteMapSuccess" xml:space="preserve"><value>地图{0}已删除。</value></data>
+  <data name="DeleteMapError" xml:space="preserve"><value>删除地图时出错：{0}</value></data>
+  <data name="SortMapsByNameSuccess" xml:space="preserve"><value>地图列表已按名称排序。</value></data>
+  <data name="SortMapsError" xml:space="preserve"><value>排序地图列表时出错：{0}</value></data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>无法清理地图文件：未找到地图列表或创意工坊文件夹。</value></data>
+  <data name="CleanMapFilesNothing" xml:space="preserve"><value>未找到未使用的地图文件。</value></data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>删除{0}个未使用的地图文件夹？</value></data>
+  <data name="CleanMapFilesDone" xml:space="preserve"><value>清理完成：已删除{0}个，失败{1}个。</value></data>
+  <data name="SortMapsByUsageOn" xml:space="preserve"><value>开</value></data>
+  <data name="SortMapsByUsageOff" xml:space="preserve"><value>关</value></data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>已启用按使用排序。每回合开始时将对地图列表排序（最久未玩的在前）。</value></data>
+  <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>已禁用按使用排序。</value></data>
+  <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>已删除：{0}（ID：{1}）</value></data>
 </root>

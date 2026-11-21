@@ -112,37 +112,38 @@
   <data name="VoteWinner" xml:space="preserve"><value>Gewinner: {0}</value></data>
   <data name="MenuMapHandler" xml:space="preserve"><value>Kartenverwaltung</value></data>
   <data name="MapMenuTitle" xml:space="preserve"><value>Kartenverwaltung</value></data>
-  <data name="AddMap" xml:space="preserve"><value>Karte hinzuf?gen</value></data>
-  <data name="DeleteMap" xml:space="preserve"><value>Karte l?schen</value></data>
+  <data name="AddMap" xml:space="preserve"><value>Karte hinzufügen</value></data>
+  <data name="DeleteMap" xml:space="preserve"><value>Karte löschen</value></data>
   <data name="SortMapsByName" xml:space="preserve"><value>Karten nach Name sortieren</value></data>
   <data name="SortMapsByUsage" xml:space="preserve"><value>Karten nach Nutzung sortieren</value></data>
   <data name="CleanMapFiles" xml:space="preserve"><value>Kartendateien bereinigen</value></data>
-  <data name="AddMapStartError" xml:space="preserve"><value>Karte kann nicht hinzugef?gt werden: deine SteamID ist nicht autorisiert.</value></data>
+  <data name="AddMapStartError" xml:space="preserve"><value>Karte kann nicht hinzugefügt werden: deine SteamID ist nicht autorisiert.</value></data>
   <data name="AddMapNamePrompt" xml:space="preserve"><value>Tippe den Kartennamen innerhalb von {0} Sekunden im Chat. Abbrechen mit !cancel.</value></data>
-  <data name="AddMapIdPrompt" xml:space="preserve"><value>Tippe die Workshop-ID f?r {0} innerhalb von {1} Sekunden im Chat, oder -, wenn es keine Workshop-Karte ist. Abbrechen mit !cancel.</value></data>
-  <data name="AddMapInvalidName" xml:space="preserve"><value>Ung?ltiger Kartenname. Er darf keine Leerzeichen oder ':' enthalten.</value></data>
+  <data name="AddMapIdPrompt" xml:space="preserve"><value>Tippe die Workshop-ID für {0} innerhalb von {1} Sekunden im Chat, oder -, wenn es keine Workshop-Karte ist. Abbrechen mit !cancel.</value></data>
+  <data name="AddMapInvalidName" xml:space="preserve"><value>Ungültiger Kartenname. Er darf keine Leerzeichen oder ':' enthalten.</value></data>
   <data name="AddMapAlreadyExists" xml:space="preserve"><value>Karte {0} ist bereits in der Kartenliste.</value></data>
-  <data name="AddMapInvalidId" xml:space="preserve"><value>Ung?ltige Workshop-ID. Nur Ziffern erlaubt, oder - zum ?berspringen.</value></data>
-  <data name="AddMapCancelled" xml:space="preserve"><value>Hinzuf?gen der Karte abgebrochen.</value></data>
-  <data name="AddMapExpired" xml:space="preserve"><value>Anfrage zum Hinzuf?gen der Karte abgelaufen.</value></data>
-  <data name="AddMapSuccess" xml:space="preserve"><value>Karte zur Kartenliste hinzugef?gt: {0}</value></data>
-  <data name="AddMapError" xml:space="preserve"><value>Fehler beim Hinzuf?gen der Karte: {0}</value></data>
-  <data name="DeleteMapTitle" xml:space="preserve"><value>Zu l?schende Karte w?hlen</value></data>
+  <data name="AddMapInvalidId" xml:space="preserve"><value>Ungültige Workshop-ID. Nur Ziffern erlaubt, oder - zum Überspringen.</value></data>
+  <data name="AddMapCancelled" xml:space="preserve"><value>Hinzufügen der Karte abgebrochen.</value></data>
+  <data name="AddMapExpired" xml:space="preserve"><value>Anfrage zum Hinzufügen der Karte abgelaufen.</value></data>
+  <data name="AddMapSuccess" xml:space="preserve"><value>Karte zur Kartenliste hinzugefügt: {0}</value></data>
+  <data name="AddMapError" xml:space="preserve"><value>Fehler beim Hinzufügen der Karte: {0}</value></data>
+  <data name="DeleteMapTitle" xml:space="preserve"><value>Zu löschende Karte wählen</value></data>
   <data name="DeleteMapNoMaps" xml:space="preserve"><value>Die Kartenliste ist leer.</value></data>
-  <data name="DeleteMapConfirm" xml:space="preserve"><value>{0} l?schen?</value></data>
+  <data name="DeleteMapConfirm" xml:space="preserve"><value>{0} löschen?</value></data>
   <data name="Yes" xml:space="preserve"><value>Ja</value></data>
   <data name="No" xml:space="preserve"><value>Nein</value></data>
-  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>{0} kann nicht gel?scht werden, da es die aktuelle Karte ist.</value></data>
-  <data name="DeleteMapSuccess" xml:space="preserve"><value>Karte {0} gel?scht.</value></data>
-  <data name="DeleteMapError" xml:space="preserve"><value>Fehler beim L?schen der Karte: {0}</value></data>
+  <data name="DeleteMapIsCurrent" xml:space="preserve"><value>{0} kann nicht gelöscht werden, da es die aktuelle Karte ist.</value></data>
+  <data name="DeleteMapSuccess" xml:space="preserve"><value>Karte {0} gelöscht.</value></data>
+  <data name="DeleteMapError" xml:space="preserve"><value>Fehler beim Löschen der Karte: {0}</value></data>
   <data name="SortMapsByNameSuccess" xml:space="preserve"><value>Kartenliste nach Name sortiert.</value></data>
   <data name="SortMapsError" xml:space="preserve"><value>Fehler beim Sortieren der Kartenliste: {0}</value></data>
-  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>Kartendateien k?nnen nicht bereinigt werden: Kartenliste oder Workshop-Ordner nicht gefunden.</value></data>
+  <data name="CleanMapFilesUnavailable" xml:space="preserve"><value>Kartendateien können nicht bereinigt werden: Kartenliste oder Workshop-Ordner nicht gefunden.</value></data>
   <data name="CleanMapFilesNothing" xml:space="preserve"><value>Keine ungenutzten Kartendateien gefunden.</value></data>
-  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>{0} ungenutzte Kartenordner l?schen?</value></data>
-  <data name="CleanMapFilesDone" xml:space="preserve"><value>Bereinigung abgeschlossen: {0} gel?scht, {1} fehlgeschlagen.</value></data>
+  <data name="CleanMapFilesConfirm" xml:space="preserve"><value>{0} ungenutzte Kartenordner löschen?</value></data>
+  <data name="CleanMapFilesDone" xml:space="preserve"><value>Bereinigung abgeschlossen: {0} gelöscht, {1} fehlgeschlagen.</value></data>
   <data name="SortMapsByUsageOn" xml:space="preserve"><value>AN</value></data>
   <data name="SortMapsByUsageOff" xml:space="preserve"><value>AUS</value></data>
-  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Sortierung nach Nutzung aktiviert. Die Kartenliste wird bei jedem Rundenstart sortiert (am l?ngsten nicht gespielte zuerst).</value></data>
+  <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Sortierung nach Nutzung aktiviert. Die Kartenliste wird bei jedem Rundenstart sortiert (am längsten nicht gespielte zuerst).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Sortierung nach Nutzung deaktiviert.</value></data>
+  <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Gelöscht: {0} (ID: {1})</value></data>
 </root>

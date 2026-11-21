@@ -94,16 +94,17 @@ namespace AdminMenu
                 return;
             }
 
-            var deleted = 0;
+            var deletedMaps = new List<(string Name, string Id)>();
             foreach (var folder in orphans)
             {
                 var id = Path.GetFileName(folder);
                 try
                 {
+                    var mapName = GetWorkshopMapName(folder);
                     Directory.Delete(folder, true);
                     RemoveWorkshopItemFromAcf(id);
-                    deleted++;
-                    Logger?.LogInformation($"Orphan workshop map folder deleted: {folder} by {adminPlayer.PlayerName}");
+                    deletedMaps.Add((mapName, id));
+                    Logger?.LogInformation($"Orphan workshop map deleted: {mapName} ({id}) from {folder} by {adminPlayer.PlayerName}");
                 }
                 catch (Exception ex)
                 {
@@ -111,7 +112,31 @@ namespace AdminMenu
                 }
             }
 
-            adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("CleanMapFilesDone", deleted, orphans.Count - deleted)}");
+            adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("CleanMapFilesDone", deletedMaps.Count, orphans.Count - deletedMaps.Count)}");
+            foreach (var (name, id) in deletedMaps)
+            {
+                adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("CleanMapFilesDeletedMap", name, id)}");
+            }
+        }
+
+        private static string GetWorkshopMapName(string folder)
+        {
+            try
+            {
+                var vpk = Directory.GetFiles(folder, "*.vpk", SearchOption.AllDirectories)
+                    .OrderBy(f => f.Length)
+                    .FirstOrDefault();
+                if (vpk is not null)
+                {
+                    var name = Path.GetFileNameWithoutExtension(vpk);
+                    return name.EndsWith("_dir", StringComparison.OrdinalIgnoreCase) ? name[..^4] : name;
+                }
+            }
+            catch
+            {
+                // Fall through to the unknown name.
+            }
+            return "?";
         }
 
         // ModuleDirectory is csgo\addons\counterstrikesharp\plugins\AdminMenu
