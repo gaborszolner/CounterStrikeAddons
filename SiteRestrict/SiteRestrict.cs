@@ -163,7 +163,8 @@ namespace SiteRestrict
             if (_switchConfig.IsSwapped(Server.MapName))
                 (nameA, nameB) = (nameB, nameA);
 
-            if (GetRandomSite(previousSite, ref sameSiteProbability) == Site.A)
+            previousSite = GetRandomSite(previousSite, ref sameSiteProbability);
+            if (previousSite == Site.A)
             {
                 _allowedSiteName = Site.A;
                 _allowedZone = zoneA;
@@ -193,7 +194,7 @@ namespace SiteRestrict
 
         private static Site GetRandomSite(Site previousSite, ref double sameSiteProbability)
         {
-            Site nextSite = Site.NotDefined;
+            Site nextSite;
             if (previousSite == Site.NotDefined)
             {
                 return random.NextDouble() < 0.5 ? Site.A : Site.B;
