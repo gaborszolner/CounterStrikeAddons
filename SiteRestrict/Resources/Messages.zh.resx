@@ -12,7 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
   <data name="SiteAllowed" xml:space="preserve">
     <value>本回合只有 {0} 炸弹点处于激活状态！</value>
   </data>
@@ -21,22 +20,5 @@
   </data>
   <data name="ConfigsReloaded" xml:space="preserve">
     <value>配置已重新加载！</value>
-  </data>
-  <data name="AdminMenuTitle" xml:space="preserve">
-    <value>SiteRestrict 管理菜单</value>
-  </data>
-  <data name="MenuSwitchSites" xml:space="preserve">
-    <value>切换炸弹点 (A &lt;-&gt; B)</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOn" xml:space="preserve">
-    <value>地图 {0} 上的炸弹点 A/B 标签现已互换。</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOff" xml:space="preserve">
-    <value>地图 {0} 上的炸弹点 A/B 标签已恢复正常。</value>
-  </data>
-  <data name="NoPermission" xml:space="preserve">
-    <value>您没有权限使用此命令。</value>
   </data>
 </root>

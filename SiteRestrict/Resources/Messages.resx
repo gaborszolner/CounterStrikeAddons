@@ -12,7 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
   <!-- {0}=site name (A or B) -->
   <data name="SiteAllowed" xml:space="preserve">
     <value>Only Bombsite {0} is active this round!</value>
@@ -23,22 +22,5 @@
   </data>
   <data name="ConfigsReloaded" xml:space="preserve">
     <value>Configs reloaded!</value>
-  </data>
-  <data name="AdminMenuTitle" xml:space="preserve">
-    <value>SiteRestrict Admin Menu</value>
-  </data>
-  <data name="MenuSwitchSites" xml:space="preserve">
-    <value>Switch Bombsites (A &lt;-&gt; B)</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOn" xml:space="preserve">
-    <value>Bombsite A/B labels are now SWITCHED on {0}.</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOff" xml:space="preserve">
-    <value>Bombsite A/B labels are back to NORMAL on {0}.</value>
-  </data>
-  <data name="NoPermission" xml:space="preserve">
-    <value>You don't have permission to use this command.</value>
   </data>
 </root>

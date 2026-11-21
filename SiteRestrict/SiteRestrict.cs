@@ -1,7 +1,6 @@
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
-using CounterStrikeSharp.API.Modules.Menu;
 using CounterStrikeSharp.API.Modules.Timers;
 using CounterStrikeSharp.API.Modules.Utils;
 using SharedLibrary;
@@ -24,10 +23,7 @@ namespace SiteRestrict
         private static bool _isRestricted = false;
         private static bool _isWarmup = false;
         private static Config _config = new();
-        private static SiteSwitchConfig _switchConfig = new();
         private CounterStrikeSharp.API.Modules.Timers.Timer? _messageTimer = null;
-
-        private string SwitchConfigPath => Path.Combine(ModuleDirectory, "site_switch.json");
 
         private static readonly Random random = new();
         Site previousSite = Site.NotDefined;
@@ -36,9 +32,9 @@ namespace SiteRestrict
         public override void Load(bool hotReload)
         {
             _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
-            _switchConfig = SiteSwitchConfig.Load(SwitchConfigPath);
             SharedLibrary.Localizer.Initialize(_config.Language);
 
+            RegisterListener<Listeners.OnMapStart>(OnMapStart);
             RegisterEventHandler<EventRoundAnnounceWarmup>(OnRoundAnnounceWarmup);
             RegisterEventHandler<EventWarmupEnd>(OnWarmupEnd);
             RegisterEventHandler<EventRoundStart>(OnRoundStart);
@@ -47,6 +43,11 @@ namespace SiteRestrict
             RegisterEventHandler<EventPlayerChat>(OnPlayerChat);
         }
 
+        private void OnMapStart(string mapName)
+        {
+            previousSite = Site.NotDefined;
+            sameSiteProbability = 0.5;
+        }
 
         private HookResult OnRoundAnnounceWarmup(EventRoundAnnounceWarmup @event, GameEventInfo info)
         {
@@ -78,47 +79,8 @@ namespace SiteRestrict
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
                 }
             }
-            else if (command is "!siterestrict")
-            {
-                if (PlayerHelper.GetAdminLevel(player, adminsFilePath) >= 3)
-                    OpenAdminMenu(player);
-                else
-                    player.PrintToChat($"{PluginPrefix} {Msg.Get("NoPermission")}");
-            }
 
             return HookResult.Continue;
-        }
-
-        private void OpenAdminMenu(CCSPlayerController player)
-        {
-            var menu = new CenterHtmlMenu(Msg.Get("AdminMenuTitle"), this);
-
-            menu.AddMenuOption(Msg.Get("MenuSwitchSites"), (controller, option) =>
-            {
-                if (controller is null || !controller.IsValid)
-                    return;
-
-                string mapName = Server.MapName;
-                bool nowSwapped = _switchConfig.Toggle(mapName);
-                _switchConfig.Save(SwitchConfigPath);
-
-                if (_isRestricted && _allowedSiteName == Site.NotDefined)
-                {
-                    _allowedSiteName = _allowedSiteName == Site.A ? Site.B : Site.A;
-
-                    foreach (var p in Utilities.GetPlayers().Where(p => p.IsValid))
-                        p.PrintToCenter(Msg.Get("SiteAllowed", _allowedSiteName));
-                }
-
-                string message = nowSwapped
-                    ? Msg.Get("SitesSwitchedOn", mapName)
-                    : Msg.Get("SitesSwitchedOff", mapName);
-
-                controller.PrintToChat($"{PluginPrefix} {message}");
-                MenuManager.CloseActiveMenu(controller);
-            });
-
-            MenuManager.OpenCenterHtmlMenu(this, player, menu);
         }
 
         private HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
@@ -158,10 +120,7 @@ namespace SiteRestrict
             if (identified == null)
                 return;
 
-            var (nameA, zoneA, centerA, nameB, zoneB, centerB) = identified.Value;
-
-            if (_switchConfig.IsSwapped(Server.MapName))
-                (nameA, nameB) = (nameB, nameA);
+            var (_, zoneA, centerA, _, zoneB, centerB) = identified.Value;
 
             previousSite = GetRandomSite(previousSite, ref sameSiteProbability);
             if (previousSite == Site.A)

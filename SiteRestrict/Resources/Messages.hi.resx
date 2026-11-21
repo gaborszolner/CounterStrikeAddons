@@ -12,7 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
   <data name="SiteAllowed" xml:space="preserve">
     <value>इस राउंड में केवल बॉम्बसाइट {0} सक्रिय है!</value>
   </data>
@@ -21,22 +20,5 @@
   </data>
   <data name="ConfigsReloaded" xml:space="preserve">
     <value>कॉन्फ़िग पुनः लोड हो गया!</value>
-  </data>
-  <data name="AdminMenuTitle" xml:space="preserve">
-    <value>SiteRestrict एडमिन मेनू</value>
-  </data>
-  <data name="MenuSwitchSites" xml:space="preserve">
-    <value>बॉम्बसाइट बदलें (A &lt;-&gt; B)</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOn" xml:space="preserve">
-    <value>{0} पर बॉम्बसाइट A/B लेबल अब बदल दिए गए हैं।</value>
-  </data>
-  <!-- {0}=map name -->
-  <data name="SitesSwitchedOff" xml:space="preserve">
-    <value>{0} पर बॉम्बसाइट A/B लेबल फिर से सामान्य हो गए हैं।</value>
-  </data>
-  <data name="NoPermission" xml:space="preserve">
-    <value>आपके पास इस कमांड का उपयोग करने की अनुमति नहीं है।</value>
   </data>
 </root>

@@ -265,7 +265,6 @@ When the CT team has fewer players than a configurable threshold at the start of
 
 **Commands:**
 - `!reload` (admin only) — reload the config without restarting the plugin.
-- `!siterestrict` (admin level 3+) — open the SiteRestrict admin menu. From the menu you can toggle/force which site (A or B) is allowed for the current map (useful for troubleshooting maps or forcing a site when automatic detection fails). The toggle is saved per-map in `site_switch.json` located in the plugin folder.
 
 ## Installation
 
