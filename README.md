@@ -7,14 +7,6 @@ A collection of plugins for **Counter-Strike 2** servers, built with [CounterStr
 - [CounterStrikeSharp GitHub](https://github.com/roflmuffin/CounterStrikeSharp)
 - [Metamod:Source](https://www.metamodsource.net/downloads.php/?branch=master)
 
-## Recent updates
-
-The project has been updated to the current CounterStrikeSharp toolchain and .NET runtime:
-- All plugins target **.NET 10** (`net10.0`)
-- The solution uses **CounterStrikeSharp.API 1.0.371**
-- New gameplay additions include **DamageReport**, **ReviveTeammate**, **SiteRestrict**, and **StartMap**
-- Shared logic is centralized in the **SharedLibrary** project used by all plugins
-
 ## Plugins
 
 | Plugin | Version | Description |
@@ -31,7 +23,7 @@ The project has been updated to the current CounterStrikeSharp toolchain and .NE
 ## Requirements
 
 - **Counter-Strike 2** dedicated game server
-- **CounterStrikeSharp.API v1.0.371** or later
+- **CounterStrikeSharp.API v1.0.380** or later
 - **.NET 10** runtime
 
 This project is built against the current .NET 10 toolchain and the matching CounterStrikeSharp API package referenced by the plugins.
