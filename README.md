@@ -64,6 +64,7 @@ An in-game admin menu accessible via the `!admin` chat command.
 - Auto-rename players if their name is already taken (configurable)
 - Drop a player's weapon
 - Change map (requires the [RockTheVote](https://github.com/abnerfs/cs2-rockthevote) addon or its `maplist.txt`)
+- Manage the map list and workshop map files with the [Map handler](#map-handler)
 - Team shuffle (configurable; requires the GameStatistic stat file to balance teams by skill)
 - Add / kick bots
 - Set admin level for a player
@@ -94,6 +95,17 @@ Any player can start a poll among everyone on the server using the `!vote` chat 
 4. After a vote completes, the player who started it must wait 30 seconds before starting another.
 
 It is **strongly recommended** to use the [MenuHotKey](#menuhotkey) plugin alongside this feature so options can be selected instantly from the pop-up menu.
+
+### Map handler
+
+The **Map handler** menu item in `!admin` (admin level 3) manages the RockTheVote `maplist.txt` and the downloaded workshop map files. It is only shown when `maplist.txt` exists.
+
+**Options:**
+- **Add map** — type the map name in chat, then its workshop ID (or `-` for a built-in map without an ID). The entry is appended to `maplist.txt` as `name:workshopId`. Map names cannot contain spaces or `:`, and duplicates are rejected. You have 60 seconds for each step; type `!cancel` to abort.
+- **Delete map** — pick a map from the list and confirm. The map is removed from `maplist.txt`, and its workshop folder (`...\csgo\workshop\content\730\<id>`) and its entry in `appworkshop_730.acf` are deleted. The currently running map cannot be deleted.
+- **Sort maps by name** — sorts `maplist.txt` alphabetically (comment lines starting with `//` are kept at the top).
+- **Sort maps by usage** — toggle. While enabled, `maplist.txt` is re-sorted at every round start so the least recently played maps come first. Only shown when the [GameStatistic](#gamestatistic) map statistics file exists. The setting is not saved and resets to off when the plugin reloads.
+- **Clean map files** — after confirmation, deletes every workshop map folder whose ID is not in `maplist.txt` (and its entry in `appworkshop_730.acf`). The folder of the currently running map is always kept. The deleted maps are listed in chat.
 
 ## Installation
 
