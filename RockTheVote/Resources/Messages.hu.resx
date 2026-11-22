@@ -111,4 +111,7 @@
   <data name="VoteRemoved" xml:space="preserve">
     <value>Az előző szavazatod törölve, szavazz újra!</value>
   </data>
+  <data name="RtvSuccessNextMapSet" xml:space="preserve">
+    <value>Az RTV sikeres! Váltás a már kiválasztott következő pályára: {0}.</value>
+  </data>
 </root>

@@ -111,4 +111,7 @@
   <data name="VoteRemoved" xml:space="preserve">
     <value>你之前的投票已被移除，请重新投票！</value>
   </data>
+  <data name="RtvSuccessNextMapSet" xml:space="preserve">
+    <value>RTV 成功！正在切换到已选定的下一张地图：{0}。</value>
+  </data>
 </root>

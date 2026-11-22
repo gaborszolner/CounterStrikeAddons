@@ -12,9 +12,11 @@ namespace _unitTests
         {
             var adminMenu = typeof(global::AdminMenu.AdminMenu).Assembly;
             var spamFilter = typeof(global::SpamFilter.SpamFilter).Assembly;
+            var rockTheVote = typeof(global::RockTheVote.RockTheVote).Assembly;
 
             yield return ["AdminMenu.Resources.Messages", adminMenu, "PlayerNoSteam", new object[] { "PlayerX" }];
             yield return ["SpamFilter.Resources.Messages", spamFilter, "NameChangeWarning", new object[] { "PlayerX", "STEAM_0:1:23", 4, 30 }];
+            yield return ["RockTheVote.Resources.Messages", rockTheVote, "RtvSuccessNextMapSet", new object[] { "de_dust2" }];
         }
 
         [TestMethod]

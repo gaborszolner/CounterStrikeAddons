@@ -111,4 +111,7 @@
   <data name="VoteRemoved" xml:space="preserve">
     <value>Votre vote précédent a été supprimé, votez à nouveau !</value>
   </data>
+  <data name="RtvSuccessNextMapSet" xml:space="preserve">
+    <value>Rock the vote réussi ! Passage à la prochaine carte déjà choisie : {0}.</value>
+  </data>
 </root>

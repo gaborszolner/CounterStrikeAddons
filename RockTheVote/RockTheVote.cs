@@ -186,11 +186,6 @@ namespace RockTheVote
                 player.PrintToChat($"{PluginPrefix} {Msg.Get("VoteInProgress")}");
                 return;
             }
-            if (_nextMap is not null)
-            {
-                player.PrintToChat($"{PluginPrefix} {Msg.Get("NextMapAlreadyDecided", _nextMap)}");
-                return;
-            }
 
             int required = GetRequiredRtvCount(PlayerHelper.GetAllPlayers().Count());
 
@@ -206,7 +201,7 @@ namespace RockTheVote
 
         private void CheckRtvThreshold(ulong? leavingSteamId = null)
         {
-            if (_rtvTriggered || _voteInProgress || _nextMap is not null || _rtvPlayers.Count == 0)
+            if (_rtvTriggered || _voteInProgress || _mapChangeScheduled || _rtvPlayers.Count == 0)
                 return;
 
             int playerCount = PlayerHelper.GetAllPlayers().Count(p => p.SteamID != leavingSteamId);
@@ -214,6 +209,15 @@ namespace RockTheVote
                 return;
 
             _rtvTriggered = true;
+
+            // The next map is already decided (e.g. by !setnextmap), so there is nothing to vote on
+            if (_nextMap is not null)
+            {
+                Server.PrintToChatAll($"{PluginPrefix} {ChatColors.Green}{Msg.Get("RtvSuccessNextMapSet", _nextMap)}{ChatColors.Default}");
+                ScheduleMapChange(_nextMap, MapChangeDelaySeconds);
+                return;
+            }
+
             Server.PrintToChatAll($"{PluginPrefix} {ChatColors.Green}{Msg.Get("RtvSuccess")}{ChatColors.Default}");
             StartMapVote(isRtvVote: true, _config.ChangeMapImmediatelyAfterRtv);
         }
