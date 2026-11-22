@@ -7,6 +7,7 @@ using CounterStrikeSharp.API.Modules.Timers;
 using CounterStrikeSharp.API.Modules.Utils;
 using Microsoft.Extensions.Logging;
 using SharedLibrary;
+using System.Text.Json;
 
 namespace RockTheVote
 {
@@ -49,6 +50,7 @@ namespace RockTheVote
             _adminsFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "admins.json");
             _mapListFilePath = Path.Combine(ModuleDirectory, MapListFileName);
             SharedLibrary.Localizer.Initialize(_config.Language);
+            SortMapList();
 
             RegisterListener<Listeners.OnMapStart>(OnMapStart);
             RegisterEventHandler<EventPlayerChat>(OnPlayerChat);
@@ -135,7 +137,21 @@ namespace RockTheVote
 
             _config = RtvConfig.LoadConfig(Path.Combine(ModuleDirectory, ConfigFileName));
             SharedLibrary.Localizer.Initialize(_config.Language);
+            SortMapList();
             player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
+        }
+
+        private void SortMapList()
+        {
+            try
+            {
+                var statisticsFile = Path.Combine(ModuleDirectory, "..", "GameStatistic", StatisticHelper.MapStatFileName);
+                MapListSorter.Sort(_mapListFilePath, statisticsFile, _config.MapSortOrder);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException or ArgumentException)
+            {
+                Logger.LogError(ex, "Failed to sort map list using MapSortOrder {MapSortOrder}", _config.MapSortOrder);
+            }
         }
 
         #region RTV
@@ -584,6 +600,7 @@ namespace RockTheVote
 
         private HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
         {
+            SortMapList();
             if (_isWarmup || !_config.EnableEndOfMapVote || _endOfMapVoteStarted || _voteInProgress || _nextMap is not null)
                 return HookResult.Continue;
 

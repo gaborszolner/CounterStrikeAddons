@@ -96,8 +96,6 @@ The **Map handler** menu item in `!admin` (admin level 3) manages the RockTheVot
 **Options:**
 - **Add map** — type the map name in chat, then its workshop ID (or `-` for a built-in map without an ID). The entry is appended to `maplist.txt` as `name:workshopId`. Map names cannot contain spaces or `:`, and duplicates are rejected. You have 60 seconds for each step; type `!cancel` to abort.
 - **Delete map** — pick a map from the list and confirm. The map is removed from `maplist.txt`, and its workshop folder (`...\csgo\workshop\content\730\<id>`) and its entry in `appworkshop_730.acf` are deleted. The currently running map cannot be deleted.
-- **Sort maps by name** — sorts `maplist.txt` alphabetically (comment lines starting with `//` are kept at the top).
-- **Sort maps by usage** — toggle. While enabled, `maplist.txt` is re-sorted at every round start so the least recently played maps come first. Only shown when the [GameStatistic](#gamestatistic) map statistics file exists. The setting is not saved and resets to off when the plugin reloads.
 - **Clean map files** — after confirmation, deletes every workshop map folder whose ID is not in `maplist.txt` (and its entry in `appworkshop_730.acf`). The folder of the currently running map is always kept. The deleted maps are listed in chat.
 
 ## Installation
@@ -256,7 +254,10 @@ Built-in maps use `changelevel`, maps with a workshop ID use `host_workshop_map 
 | `CloseVotingMenuAfterVote` | `true` | Close the vote menu after voting (players can use `!revote` to change their vote) |
 | `MapsToShow` | `8` | Number of maps in the vote (also the maximum number of different nominated maps) |
 | `MapsInCoolDown` | `3` | Number of previously played maps excluded from nominations and votes |
+| `MapSortOrder` | `None` | `None` keeps the file unchanged; `Name` sorts alphabetically; `Usage` puts least recently played maps first using GameStatistic's `mapStatistic.json` |
 | `Language` | `en` | Message language |
+
+Sorting updates `maplist.txt` when the plugin loads, after `!reload`, and at each round start. Comment lines are kept at the top. `Usage` requires the GameStatistic map statistics file; missing or invalid files and invalid sort modes are logged.
 
 It is **strongly recommended** to use the [MenuHotKey](#menuhotkey) plugin alongside this one so maps can be selected instantly from the pop-up menu.
 

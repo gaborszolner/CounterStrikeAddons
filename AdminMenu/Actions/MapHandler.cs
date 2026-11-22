@@ -4,7 +4,6 @@ using CounterStrikeSharp.API.Modules.Entities;
 using CounterStrikeSharp.API.Modules.Menu;
 using Microsoft.Extensions.Logging;
 using SharedLibrary;
-using SharedLibrary.Entries;
 
 namespace AdminMenu
 {
@@ -16,22 +15,6 @@ namespace AdminMenu
 
             mapMenu.AddMenuOption(Msg.Get("AddMap"), (controller, _) => StartAddMap(controller));
             mapMenu.AddMenuOption(Msg.Get("DeleteMap"), (controller, _) => ShowDeleteMapMenu(controller));
-            mapMenu.AddMenuOption(Msg.Get("SortMapsByName"), (controller, _) =>
-            {
-                MenuManager.GetActiveMenu(controller)?.Close();
-                SortMapsByName(controller);
-            });
-            if (File.Exists(_mapStatFileFullPath))
-            {
-                var usageLabel = Msg.Get(_sortMapsByUsage ? "SortMapsByUsageOn" : "SortMapsByUsageOff");
-                mapMenu.AddMenuOption($"{Msg.Get("SortMapsByUsage")} [{usageLabel}]", (controller, _) =>
-                {
-                    MenuManager.GetActiveMenu(controller)?.Close();
-                    _sortMapsByUsage = !_sortMapsByUsage;
-                    controller.PrintToChat($"{PluginPrefix} {Msg.Get(_sortMapsByUsage ? "SortMapsByUsageEnabled" : "SortMapsByUsageDisabled")}");
-                    Logger?.LogInformation($"Sort maps by usage {(_sortMapsByUsage ? "enabled" : "disabled")} by {controller.PlayerName}");
-                });
-            }
             mapMenu.AddMenuOption(Msg.Get("CleanMapFiles"), (controller, _) => ShowCleanMapFilesConfirmMenu(controller));
             MenuManager.OpenCenterHtmlMenu(this, adminPlayer, mapMenu);
         }
@@ -295,84 +278,6 @@ namespace AdminMenu
 
                 content = content.Remove(startIndex, endIndex + 1 - startIndex);
                 searchFrom = startIndex;
-            }
-        }
-
-        private void SortMapsByName(CCSPlayerController adminPlayer)
-        {
-            if (!File.Exists(_mapListFilePath))
-            {
-                adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("DeleteMapNoMaps")}");
-                return;
-            }
-
-            try
-            {
-                var lines = File.ReadAllLines(_mapListFilePath);
-                var comments = lines.Where(l => l.StartsWith(@"//"));
-                var maps = lines
-                    .Where(l => !l.StartsWith(@"//") && !string.IsNullOrWhiteSpace(l))
-                    .Select(l => l.Trim())
-                    .OrderBy(l => l.Split(':')[0].Trim(), StringComparer.OrdinalIgnoreCase);
-
-                File.WriteAllLines(_mapListFilePath, comments.Concat(maps).ToList());
-
-                adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("SortMapsByNameSuccess")}");
-                Logger?.LogInformation($"Map list sorted by name by {adminPlayer.PlayerName}");
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"Error sorting map list by name: {ex.Message}");
-                adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("SortMapsError", ex.Message)}");
-            }
-        }
-
-        private static bool _sortMapsByUsage = false;
-
-        public HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
-        {
-            if (_sortMapsByUsage)
-            {
-                SortMapsByUsage();
-            }
-            return HookResult.Continue;
-        }
-
-        private void SortMapsByUsage()
-        {
-            if (!File.Exists(_mapListFilePath) || !File.Exists(_mapStatFileFullPath))
-            {
-                return;
-            }
-
-            try
-            {
-                var stats = Utils.ReadStoredStat<Dictionary<string, MapStatEntry>>(_mapStatFileFullPath) ?? [];
-                var lastPlayed = new Dictionary<string, DateTime>(StringComparer.OrdinalIgnoreCase);
-                foreach (var stat in stats)
-                {
-                    lastPlayed[stat.Key] = stat.Value.LastPlayed;
-                }
-
-                var lines = File.ReadAllLines(_mapListFilePath);
-                var comments = lines.Where(l => l.StartsWith(@"//"));
-                var maps = lines
-                    .Where(l => !l.StartsWith(@"//") && !string.IsNullOrWhiteSpace(l))
-                    .Select(l => l.Trim())
-                    .Select(l => (Line: l, Name: l.Split(':')[0].Trim()))
-                    .OrderBy(m => lastPlayed.TryGetValue(m.Name, out var played) ? played : DateTime.MinValue)
-                    .ThenBy(m => m.Name, StringComparer.OrdinalIgnoreCase)
-                    .Select(m => m.Line);
-
-                var sorted = comments.Concat(maps).ToList();
-                if (!sorted.SequenceEqual(lines))
-                {
-                    File.WriteAllLines(_mapListFilePath, sorted);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"Error sorting map list by usage: {ex.Message}");
             }
         }
 

@@ -24,7 +24,6 @@ namespace AdminMenu
         private static string _weaponRestrictFilePath = string.Empty;
         private string _statDirectory => Path.Combine(ModuleDirectory, "..", "GameStatistic");
         private string _playerStatFileFullPath => Path.Combine(_statDirectory, StatisticHelper.PlayerStatFileName);
-        private string _mapStatFileFullPath => Path.Combine(_statDirectory, StatisticHelper.MapStatFileName);
         private static string _mapListFilePath = string.Empty;
         private static bool _isWarmup = false;
         private static Dictionary<string, WeaponRestrictEntry>? _weaponRestrictEntry;
@@ -51,7 +50,6 @@ namespace AdminMenu
             RegisterEventHandler<EventWarmupEnd>(OnWarmupEnd);
             RegisterEventHandler<EventItemPickup>(OnItemPickup);
             RegisterEventHandler<EventItemEquip>(OnItemEquip);
-            RegisterEventHandler<EventRoundStart>(OnRoundStart);
             AddCommandListener("!admin", (player, args) => { ShowMainMenu(player); return HookResult.Continue; });
 
 

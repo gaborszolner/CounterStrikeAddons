@@ -14,6 +14,7 @@ namespace RockTheVote
         public bool CloseVotingMenuAfterVote { get; set; } = true;
         public int MapsToShow { get; set; } = 8;
         public int MapsInCoolDown { get; set; } = 3;
+        public string MapSortOrder { get; set; } = "None";
         public string Language { get; set; } = "en";
 
         public static RtvConfig LoadConfig(string configFile)
