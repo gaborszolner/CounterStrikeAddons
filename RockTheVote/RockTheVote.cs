@@ -1,3 +1,5 @@
+global using Msg = SharedLibrary.Msg<global::RockTheVote.RockTheVote>;
+
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Cvars;

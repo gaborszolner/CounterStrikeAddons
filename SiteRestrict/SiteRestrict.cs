@@ -1,3 +1,5 @@
+global using Msg = SharedLibrary.Msg<global::SiteRestrict.SiteRestrict>;
+
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;

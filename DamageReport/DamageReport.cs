@@ -1,3 +1,5 @@
+global using Msg = SharedLibrary.Msg<global::DamageReport.DamageReport>;
+
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
 using CounterStrikeSharp.API.Modules.Utils;

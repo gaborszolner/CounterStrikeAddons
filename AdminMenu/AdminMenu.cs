@@ -1,3 +1,5 @@
+global using Msg = SharedLibrary.Msg<global::AdminMenu.AdminMenu>;
+
 ﻿using AdminMenu.Entries;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;

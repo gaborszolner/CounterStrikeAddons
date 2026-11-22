@@ -1,3 +1,5 @@
+global using Msg = SharedLibrary.Msg<global::ReviveTeammate.ReviveTeammate>;
+
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
