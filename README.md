@@ -215,7 +215,7 @@ Lets players vote to change the map (rock the vote), nominate maps for the next 
 **How it works:**
 1. Players type `!rtv`. When the configured percentage of human players has voted, a map vote starts.
 2. Players can `!nominate` maps beforehand; nominated maps (most nominated first) are always included in the vote, the rest of the options are filled with random maps. At most `MapsToShow` different maps can be nominated; when a player leaves, their nomination is removed and frees up a slot.
-3. The vote menu is shown to every player for `VotingSecondLimit` seconds. Players whose nominated map is in the vote automatically vote for it and don't get the menu (they can use `!revote` to change). The map with the most votes wins; on a tie the map that reached that vote count first wins (only remaining ties and no-vote cases are decided randomly). When the vote ends, everyone sees the vote type (RTV or end of map), the per-map results and the chosen map.
+3. The vote menu is shown to every player for `VotingSecondLimit` seconds; the vote ends early as soon as every human player has voted (e.g. a lone player whose nominated map is in the vote). An RTV vote also ends early once the winner is certain, i.e. no other map can overtake it even if all remaining players vote for it. Players whose nominated map is in the vote automatically vote for it and don't get the menu (they can use `!revote` to change). The map with the most votes wins; on a tie the map that reached that vote count first wins (only remaining ties and no-vote cases are decided randomly). When the vote ends, everyone sees the vote type (RTV or end of map), the per-map results and the chosen map.
 4. After a successful RTV the map changes 5 seconds after the vote (if `ChangeMapImmediatelyAfterRtv` is enabled), otherwise the winner becomes the next map.
 5. If `EnableEndOfMapVote` is enabled and no next map is set, a vote starts automatically at the start of a round when the match can end within `EndOfMapVoteRoundsBeforeEnd` rounds (remaining rounds, or rounds a team needs to clinch). When the match ends, the server switches to the chosen map just before `mp_match_restart_delay` expires.
 6. The current map and the last `MapsInCoolDown` played maps cannot be nominated or voted.
@@ -337,6 +337,12 @@ Extract the `SiteRestrict` folder to `...\csgo\addons\counterstrikesharp\plugins
 
 # SpamFilter
 It tries to detect spammers and the frequent name changes used by scammers.
+
+**Configurable options (in `config.json`, created automatically on first run):**
+
+| Option | Default | Description |
+|---|---|---|
+| `Language` | `en` | Message language |
 
 ## Installation
 

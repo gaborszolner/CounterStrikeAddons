@@ -26,5 +26,23 @@ namespace _unitTests.RockTheVote
             Assert.IsFalse(votes.ContainsKey(1));
             Assert.AreEqual("de_mirage", votes[2]);
         }
+
+        [TestMethod]
+        public void HaveAllPlayersVoted_SinglePlayerAutoVoted_True()
+        {
+            Assert.IsTrue(RockTheVotePlugin.HaveAllPlayersVoted([1], [1]));
+        }
+
+        [TestMethod]
+        public void HaveAllPlayersVoted_SomePlayerMissing_False()
+        {
+            Assert.IsFalse(RockTheVotePlugin.HaveAllPlayersVoted([1, 2], [1]));
+        }
+
+        [TestMethod]
+        public void HaveAllPlayersVoted_NoPlayers_False()
+        {
+            Assert.IsFalse(RockTheVotePlugin.HaveAllPlayersVoted([], [1]));
+        }
     }
 }

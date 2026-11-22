@@ -24,6 +24,7 @@ namespace GameStatistic
 
         public override void Load(bool hotReload)
         {
+            Utils.LogPrefix = PluginPrefix;
             RegisterEventHandler<EventRoundAnnounceWarmup>(OnRoundAnnounceWarmup);
             RegisterEventHandler<EventWarmupEnd>(OnWarmupEnd);
             RegisterEventHandler<EventRoundStart>(OnRoundStart);

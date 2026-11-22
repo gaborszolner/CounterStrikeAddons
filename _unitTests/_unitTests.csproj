@@ -21,6 +21,7 @@
     <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
     <ProjectReference Include="..\AdminMenu\AdminMenu.csproj" />
     <ProjectReference Include="..\RockTheVote\RockTheVote.csproj" />
+    <ProjectReference Include="..\SpamFilter\SpamFilter.csproj" />
   </ItemGroup>
 
   <ItemGroup>

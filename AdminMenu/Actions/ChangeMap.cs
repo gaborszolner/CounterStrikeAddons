@@ -59,13 +59,13 @@ namespace AdminMenu
                     }
                     catch (Exception ex)
                     {
-                        Logger?.LogError($"Error parsing line '{line}' in map list file: {ex.Message}");
+                        Logger?.LogError($"{PluginPrefix} Error parsing line '{line}' in map list file: {ex.Message}");
                     }
                 }
             }
             else
             {
-                Logger?.LogError($"Map list file not found: {mapListFilePath}");
+                Logger?.LogError($"{PluginPrefix} Map list file not found: {mapListFilePath}");
             }
             return mapList;
         }

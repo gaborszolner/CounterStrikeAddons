@@ -121,7 +121,7 @@ namespace AdminMenu
             return (controller, option) =>
             {
                 string weaponList = GetRestrictedWeapons(mapName);
-                Server.PrintToChatAll($"{PluginPrefix} Restricted weapon on map {mapName}: {weaponList.Replace("weapon_", "")}");
+                Server.PrintToChatAll($"{PluginPrefix} {Msg.Get("RestrictedWeaponsOnMap", mapName, weaponList.Replace("weapon_", ""))}");
             };
         }
 

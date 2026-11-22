@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Tri par utilisation activé. La liste des cartes sera triée à chaque début de manche (les moins récemment jouées en premier).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Tri par utilisation désactivé.</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Supprimée : {0} (ID : {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>Le joueur n'a pas de connexion Steam : {0}</value>
+  </data>
 </root>

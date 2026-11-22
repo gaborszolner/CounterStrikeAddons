@@ -23,7 +23,7 @@ namespace AdminMenu
         {
             if (player == null || player.AuthorizedSteamID == null)
             {
-                Logger?.LogError("Player or SteamID is invalid.");
+                Logger?.LogError($"{PluginPrefix} Player or SteamID is invalid.");
                 return;
             }
 
@@ -88,7 +88,7 @@ namespace AdminMenu
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error banning player: {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error banning player: {ex.Message}");
             }
         }
     }

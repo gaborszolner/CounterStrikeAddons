@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Sortierung nach Nutzung aktiviert. Die Kartenliste wird bei jedem Rundenstart sortiert (am längsten nicht gespielte zuerst).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Sortierung nach Nutzung deaktiviert.</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Gelöscht: {0} (ID: {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>Spieler hat keine Steam-Anmeldung: {0}</value>
+  </data>
 </root>

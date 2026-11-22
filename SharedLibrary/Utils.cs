@@ -6,6 +6,8 @@ namespace SharedLibrary
 {
     public class Utils
     {
+        public static string LogPrefix { get; set; } = "[SharedLibrary]";
+
         public static DateTime GetServerTime()
         {
             TimeZoneInfo tz;
@@ -40,7 +42,7 @@ namespace SharedLibrary
                 }
                 catch (Exception)
                 {
-                    Server.PrintToConsole($"Failed to deserialize file: {json}");
+                    Server.PrintToConsole($"{LogPrefix} Failed to deserialize file: {json}");
                 }
             }
             else
@@ -71,7 +73,7 @@ namespace SharedLibrary
                 }
                 catch (Exception)
                 {
-                    Server.PrintToConsole($"Failed to deserialize file: {json}");
+                    Server.PrintToConsole($"{LogPrefix} Failed to deserialize file: {json}");
                     return null;
                 }
             }
@@ -97,7 +99,7 @@ namespace SharedLibrary
             }
             catch (Exception)
             {
-                Server.PrintToConsole($"Error writing to file {fileName}");
+                Server.PrintToConsole($"{LogPrefix} Error writing to file {fileName}");
             }
         }
 

@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>उपयोग से क्रमबद्धता चालू। हर राउंड की शुरुआत में मैप सूची क्रमबद्ध होगी (सबसे पुराने खेले गए पहले)।</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>उपयोग से क्रमबद्धता बंद।</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>हटाया गया: {0} (ID: {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>खिलाड़ी का Steam लॉगिन नहीं है: {0}</value>
+  </data>
 </root>

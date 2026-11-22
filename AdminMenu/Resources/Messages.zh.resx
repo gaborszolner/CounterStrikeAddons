@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>已启用按使用排序。每回合开始时将对地图列表排序（最久未玩的在前）。</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>已禁用按使用排序。</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>已删除：{0}（ID：{1}）</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>玩家没有 Steam 登录：{0}</value>
+  </data>
 </root>

@@ -37,7 +37,7 @@ namespace AdminMenu
                              method2Result.Difference <= method4Result.Difference ? method2Result :
                              method3Result.Difference <= method4Result.Difference ? method3Result : method4Result;
 
-            Logger?.LogInformation($"Used shuffle method {bestMethod.MethodNumber} with difference {bestMethod.Difference:F2}% (Method1: {method1Result.Difference:F2}%, Method2: {method2Result.Difference:F2}%, Method3: {method3Result.Difference:F2}%, Method4: {method4Result.Difference:F2}%)");
+            Logger?.LogInformation($"{PluginPrefix} Used shuffle method {bestMethod.MethodNumber} with difference {bestMethod.Difference:F2}% (Method1: {method1Result.Difference:F2}%, Method2: {method2Result.Difference:F2}%, Method3: {method3Result.Difference:F2}%, Method4: {method4Result.Difference:F2}%)");
 
             Shuffle.ReOrganizeTeams(bestMethod.TeamTSteamId2List, bestMethod.TeamCTSteamId2List);
 

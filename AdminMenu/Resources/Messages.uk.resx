@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Сортування за використанням увімкнено. Список карт сортуватиметься на початку кожного раунду (давно не зіграні першими).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Сортування за використанням вимкнено.</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Видалено: {0} (ID: {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>Гравець не має входу в Steam: {0}</value>
+  </data>
 </root>

@@ -155,7 +155,7 @@ namespace AdminMenu
                 }
                 catch (Exception ex)
                 {
-                    Logger?.LogError($"Vote menu error: {ex.Message}");
+                    Logger?.LogError($"{PluginPrefix} Vote menu error: {ex.Message}");
                 }
             }
         }

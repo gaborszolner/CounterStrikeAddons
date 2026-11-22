@@ -16,12 +16,17 @@ namespace SpamFilter
         public override string ModuleAuthor => "Sinistral";
         public override string ModuleDescription => "Filters spammers and some cheaters";
 
+        public readonly string PluginPrefix = "[SpamFilter]";
+
         List<KeyValuePair<string, DateTime>> playerNameChanges = new();
         int spammerNameChangeLimit = 3; // Number of name changes allowed within the time window
         int spammerNameChangeTimeWindow = 30; // Time window in seconds
 
         public override void Load(bool hotReload)
         {
+            var config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            SharedLibrary.Localizer.Initialize(config.Language);
+
             RegisterEventHandler<EventPlayerConnect>(OnPlayerConnect);
             RegisterEventHandler<EventPlayerDisconnect>(OnPlayerDisconnect, HookMode.Pre);
             RegisterEventHandler<EventPlayerChat>(OnPlayerChat);
@@ -46,11 +51,11 @@ namespace SpamFilter
             playerNameChanges.RemoveAll(kv => (now - kv.Value).TotalSeconds > spammerNameChangeTimeWindow);
 
             var recentChangesForPlayer = playerNameChanges.Count(kv => kv.Key == playerId);
-            Server.PrintToChatAll($"Player {player?.PlayerName} ({playerId}) has changed their name {recentChangesForPlayer} times within {spammerNameChangeTimeWindow}s.");
+            Server.PrintToChatAll(Msg.Get("NameChangeWarning", player?.PlayerName ?? string.Empty, playerId, recentChangesForPlayer, spammerNameChangeTimeWindow));
 
             if (recentChangesForPlayer > spammerNameChangeLimit)
             {
-                Logger?.LogInformation($"Player {player?.PlayerName} ({playerId}) has changed their name {recentChangesForPlayer} times within {spammerNameChangeTimeWindow}s.");
+                Logger?.LogInformation($"{PluginPrefix} Player {player?.PlayerName} ({playerId}) has changed their name {recentChangesForPlayer} times within {spammerNameChangeTimeWindow}s.");
                 player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKBANADDED);
             }
 
@@ -63,7 +68,7 @@ namespace SpamFilter
             if (IsSpammer(player))
             {
                 var playerName = player?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
-                Logger?.LogInformation($"Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
+                Logger?.LogInformation($"{PluginPrefix} Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
                 player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKBANADDED);
             }
             return HookResult.Continue;
@@ -81,7 +86,7 @@ namespace SpamFilter
             var playerName = player?.PlayerName.Trim().Replace("\r", "").Replace("\n", "");
             if (IsSpammer(player))
             {
-                Logger?.LogInformation($"Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
+                Logger?.LogInformation($"{PluginPrefix} Spammer player disconnect: {playerName} - SteamID2: {@event.Userid?.AuthorizedSteamID?.SteamId2}");
                 info.DontBroadcast = true;
             }
 
@@ -94,7 +99,7 @@ namespace SpamFilter
 
             if (IsSpammer(player))
             {
-                Logger?.LogInformation($"Spammer player disconnect: {player?.PlayerName} - SteamID2: {player?.AuthorizedSteamID?.SteamId2}");
+                Logger?.LogInformation($"{PluginPrefix} Spammer player disconnect: {player?.PlayerName} - SteamID2: {player?.AuthorizedSteamID?.SteamId2}");
                 player?.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKED);
                 return HookResult.Handled;
             }

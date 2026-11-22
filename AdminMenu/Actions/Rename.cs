@@ -64,7 +64,7 @@ namespace AdminMenu
                     {
                         target.PlayerName = newName;
                         Server.PrintToChatAll($"{PluginPrefix} {Msg.Get("PlayerRenamed", pendingRename.OldName, newName, pendingRename.AdminName)}");
-                        Logger?.LogInformation($"Player renamed: {pendingRename.OldName} to {newName} by {pendingRename.AdminName} (SteamID2: {pendingRename.TargetSteamId2})");
+                        Logger?.LogInformation($"{PluginPrefix} Player renamed: {pendingRename.OldName} to {newName} by {pendingRename.AdminName} (SteamID2: {pendingRename.TargetSteamId2})");
                     }
                     else
                     {
@@ -73,7 +73,7 @@ namespace AdminMenu
                 }
                 catch (Exception ex)
                 {
-                    Logger?.LogError($"Error applying rename: {ex.Message}");
+                    Logger?.LogError($"{PluginPrefix} Error applying rename: {ex.Message}");
                     adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("RenameApplyError", ex.Message)}");
                 }
 
@@ -84,7 +84,7 @@ namespace AdminMenu
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error processing pending rename: {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error processing pending rename: {ex.Message}");
             }
         }
 

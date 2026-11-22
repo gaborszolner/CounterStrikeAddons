@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Ordenación por uso activada. La lista de mapas se ordenará al inicio de cada ronda (los jugados hace más tiempo primero).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Ordenación por uso desactivada.</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Eliminado: {0} (ID: {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>El jugador no tiene sesión de Steam: {0}</value>
+  </data>
 </root>

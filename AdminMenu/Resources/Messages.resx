@@ -501,4 +501,7 @@
   <data name="CleanMapFilesDeletedMap" xml:space="preserve">
     <value>Deleted: {0} (ID: {1})</value>
   </data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>Player has no Steam login: {0}</value>
+  </data>
 </root>

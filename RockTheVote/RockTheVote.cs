@@ -43,6 +43,7 @@ namespace RockTheVote
         private static List<string> _voteOptions = [];
         private static readonly Dictionary<ulong, (string Map, long Order)> _mapVotes = [];
         private static long _voteSequence = 0;
+        private static CounterStrikeSharp.API.Modules.Timers.Timer? _voteTimer = null;
 
         public override void Load(bool hotReload)
         {
@@ -74,6 +75,7 @@ namespace RockTheVote
             _mapVotes.Clear();
             _voteOptions = [];
             _voteInProgress = false;
+            _voteTimer = null;
             _rtvTriggered = false;
             _endOfMapVoteStarted = false;
             _isRtvVote = false;
@@ -108,18 +110,23 @@ namespace RockTheVote
             switch (command)
             {
                 case "!rtv":
+                case "rtv":
                     CallRtv(player);
                     break;
                 case "!nominate":
+                case "nominate":
                     Nominate(player, argument);
                     break;
                 case "!nextmap":
+                case "nextmap":
                     ShowNextMap();
                     break;
                 case "!setnextmap":
+                case "setnextmap":
                     SetNextMap(player, argument);
                     break;
                 case "!revote":
+                case "revote":
                     Revote(player);
                     break;
                 case "!reload":
@@ -150,7 +157,7 @@ namespace RockTheVote
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException or ArgumentException)
             {
-                Logger.LogError(ex, "Failed to sort map list using MapSortOrder {MapSortOrder}", _config.MapSortOrder);
+                Logger.LogError(ex, "{PluginPrefix} Failed to sort map list using MapSortOrder {MapSortOrder}", PluginPrefix, _config.MapSortOrder);
             }
         }
 
@@ -396,7 +403,55 @@ namespace RockTheVote
                 ShowVoteMenu(player);
             }
 
-            AddTimer(seconds, EndMapVote, TimerFlags.STOP_ON_MAPCHANGE);
+            _voteTimer = AddTimer(seconds, EndMapVote, TimerFlags.STOP_ON_MAPCHANGE);
+            EndMapVoteIfAllVoted();
+        }
+
+        public static bool HaveAllPlayersVoted(IEnumerable<ulong> playerIds, IEnumerable<ulong> voterIds)
+        {
+            var voters = voterIds.ToHashSet();
+            var players = playerIds.ToList();
+            return players.Count > 0 && players.All(voters.Contains);
+        }
+
+        // The winner is certain when no other map can overtake it even if every remaining player votes for it;
+        // reaching the same count later still loses the tie-break
+        public static bool IsVoteDecided(IReadOnlyCollection<(string Map, long Order)> votes, int remainingVoters)
+        {
+            var winners = GetWinningMaps(votes);
+            if (winners.Count != 1)
+                return false;
+
+            int leaderCount = votes.Count(v => v.Map.Equals(winners[0], StringComparison.OrdinalIgnoreCase));
+            int runnerUpCount = votes
+                .Where(v => !v.Map.Equals(winners[0], StringComparison.OrdinalIgnoreCase))
+                .GroupBy(v => v.Map, StringComparer.OrdinalIgnoreCase)
+                .Select(g => g.Count())
+                .DefaultIfEmpty(0)
+                .Max();
+
+            return leaderCount >= runnerUpCount + remainingVoters;
+        }
+
+        private void EndMapVoteIfAllVoted(ulong? leavingSteamId = null)
+        {
+            if (!_voteInProgress)
+                return;
+
+            var playerIds = PlayerHelper.GetAllPlayers().Select(p => p.SteamID).Where(id => id != leavingSteamId).ToList();
+            if (HaveAllPlayersVoted(playerIds, _mapVotes.Keys))
+            {
+                EndMapVote();
+                return;
+            }
+
+            if (_isRtvVote)
+            {
+                var votes = _mapVotes.Values.Where(v => _voteOptions.Contains(v.Map, StringComparer.OrdinalIgnoreCase)).ToList();
+                int remainingVoters = playerIds.Count(id => !_mapVotes.ContainsKey(id));
+                if (IsVoteDecided(votes, remainingVoters))
+                    EndMapVote();
+            }
         }
 
         public static Dictionary<ulong, string> GetNominationVotes(IReadOnlyDictionary<ulong, string> nominations, IReadOnlyList<string> voteOptions)
@@ -453,6 +508,7 @@ namespace RockTheVote
                         if (!_mapVotes.TryGetValue(controller.SteamID, out var existing) || !existing.Map.Equals(map, StringComparison.OrdinalIgnoreCase))
                             _mapVotes[controller.SteamID] = (map, ++_voteSequence);
                         controller.PrintToChat($"{PluginPrefix} {Msg.Get("YouVotedFor", map)}");
+                        EndMapVoteIfAllVoted();
                     });
                 }
 
@@ -460,7 +516,7 @@ namespace RockTheVote
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Map vote menu error: {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Map vote menu error: {ex.Message}");
             }
         }
 
@@ -486,6 +542,8 @@ namespace RockTheVote
                 return;
 
             _voteInProgress = false;
+            _voteTimer?.Kill();
+            _voteTimer = null;
 
             foreach (var player in PlayerHelper.GetAllPlayers())
             {
@@ -672,6 +730,7 @@ namespace RockTheVote
             _mapVotes.Remove(steamId);
 
             CheckRtvThreshold(steamId);
+            EndMapVoteIfAllVoted(steamId);
             return HookResult.Continue;
         }
 
@@ -719,7 +778,7 @@ namespace RockTheVote
             Dictionary<string, string?> mapList = new(StringComparer.OrdinalIgnoreCase);
             if (!File.Exists(_mapListFilePath))
             {
-                Logger?.LogError($"Map list file not found: {_mapListFilePath}");
+                Logger?.LogError($"{PluginPrefix} Map list file not found: {_mapListFilePath}");
                 return mapList;
             }
 
@@ -742,7 +801,7 @@ namespace RockTheVote
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error reading map list file '{_mapListFilePath}': {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error reading map list file '{_mapListFilePath}': {ex.Message}");
             }
 
             return mapList;

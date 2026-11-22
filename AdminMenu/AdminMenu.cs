@@ -53,6 +53,7 @@ namespace AdminMenu
             AddCommandListener("!admin", (player, args) => { ShowMainMenu(player); return HookResult.Continue; });
 
 
+            Utils.LogPrefix = PluginPrefix;
             _adminsFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "admins.json");
             _bannedFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "banned.json");
             _weaponRestrictFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "weaponRestrict.json");
@@ -102,7 +103,7 @@ namespace AdminMenu
                     }
                     catch (Exception ex)
                     {
-                        Logger?.LogError($"Error unmuting player after death: {ex.Message}");
+                        Logger?.LogError($"{PluginPrefix} Error unmuting player after death: {ex.Message}");
                     }
                 });
             }
@@ -194,7 +195,7 @@ namespace AdminMenu
                         welcomeMessage += $" {Msg.Get("JoinSuffixNotAdmin")}";
                     }
 
-                    Logger?.LogInformation($"Player connect: {player.PlayerName} - SteamID2: {player.AuthorizedSteamID?.SteamId2} - AdminLevel: {adminLevel}");
+                    Logger?.LogInformation($"{PluginPrefix} Player connect: {player.PlayerName} - SteamID2: {player.AuthorizedSteamID?.SteamId2} - AdminLevel: {adminLevel}");
                     Server.PrintToChatAll(welcomeMessage);
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("TypeHelpHint")}");
                 }
@@ -217,7 +218,7 @@ namespace AdminMenu
 
             if (attempts >= 5)
             {
-                Server.PrintToChatAll($"{PluginPrefix} Player has no steam: {player.PlayerName}");
+                Server.PrintToChatAll($"{PluginPrefix} {Msg.Get("PlayerNoSteam", player.PlayerName)}");
                 player.Disconnect(NetworkDisconnectionReason.NETWORK_DISCONNECT_KICKED_NOSTEAMLOGIN);
                 return;
             }
@@ -371,7 +372,7 @@ namespace AdminMenu
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error reading {_bannedFilePath} file: {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error reading {_bannedFilePath} file: {ex.Message}");
                 return false;
             }
         }
@@ -399,7 +400,7 @@ namespace AdminMenu
             {
                 foreach (var statusPlayer in PlayerHelper.GetAllPlayers())
                 {
-                    string status = $"Player: {statusPlayer.PlayerName} - {statusPlayer.AuthorizedSteamID?.SteamId2}";
+                    string status = $"{PluginPrefix} Player: {statusPlayer.PlayerName} - {statusPlayer.AuthorizedSteamID?.SteamId2}";
                     Server.PrintToConsole(status);
                     Logger?.LogInformation(status);
                 }

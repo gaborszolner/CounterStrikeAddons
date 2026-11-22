@@ -146,4 +146,7 @@
   <data name="SortMapsByUsageEnabled" xml:space="preserve"><value>Kullanıma göre sıralama etkin. Harita listesi her raunt başında sıralanacak (en uzun süredir oynanmayan önce).</value></data>
   <data name="SortMapsByUsageDisabled" xml:space="preserve"><value>Kullanıma göre sıralama devre dışı.</value></data>
   <data name="CleanMapFilesDeletedMap" xml:space="preserve"><value>Silindi: {0} (ID: {1})</value></data>
+  <data name="PlayerNoSteam" xml:space="preserve">
+    <value>Oyuncunun Steam girişi yok: {0}</value>
+  </data>
 </root>

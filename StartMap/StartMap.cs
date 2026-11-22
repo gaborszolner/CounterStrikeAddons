@@ -49,7 +49,7 @@ namespace StartMap
         {
             if (!File.Exists(mapFilePath))
             {
-                Logger?.LogError($"Map list file not found: {mapFilePath}");
+                Logger?.LogError($"{PluginPrefix} Map list file not found: {mapFilePath}");
                 return null;
             }
 
@@ -72,7 +72,7 @@ namespace StartMap
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error parsing map list file '{mapFilePath}': {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error parsing map list file '{mapFilePath}': {ex.Message}");
                 return null;
             }
         }

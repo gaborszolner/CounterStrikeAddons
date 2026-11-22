@@ -277,7 +277,7 @@ namespace ReviveTeammate
                 }
                 catch (Exception ex)
                 {
-                    Logger?.LogError($"Error setting HP after revive: {ex.Message}");
+                    Logger?.LogError($"{PluginPrefix} Error setting HP after revive: {ex.Message}");
                 }
             });
 

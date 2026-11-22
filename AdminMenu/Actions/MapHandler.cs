@@ -87,11 +87,11 @@ namespace AdminMenu
                     Directory.Delete(folder, true);
                     RemoveWorkshopItemFromAcf(id);
                     deletedMaps.Add((mapName, id));
-                    Logger?.LogInformation($"Orphan workshop map deleted: {mapName} ({id}) from {folder} by {adminPlayer.PlayerName}");
+                    Logger?.LogInformation($"{PluginPrefix} Orphan workshop map deleted: {mapName} ({id}) from {folder} by {adminPlayer.PlayerName}");
                 }
                 catch (Exception ex)
                 {
-                    Logger?.LogError($"Error deleting orphan workshop folder '{folder}': {ex.Message}");
+                    Logger?.LogError($"{PluginPrefix} Error deleting orphan workshop folder '{folder}': {ex.Message}");
                 }
             }
 
@@ -176,7 +176,7 @@ namespace AdminMenu
                     }
                     else
                     {
-                        Logger?.LogWarning($"Workshop folder not found for map {mapName}: {mapFolder}");
+                        Logger?.LogWarning($"{PluginPrefix} Workshop folder not found for map {mapName}: {mapFolder}");
                     }
 
                     RemoveWorkshopItemFromAcf(workshopId);
@@ -185,11 +185,11 @@ namespace AdminMenu
                 RemoveMapFromList(mapName);
 
                 adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("DeleteMapSuccess", mapName)}");
-                Logger?.LogInformation($"Map deleted: {mapName} ({workshopId ?? "no workshop id"}) by {adminPlayer.PlayerName}");
+                Logger?.LogInformation($"{PluginPrefix} Map deleted: {mapName} ({workshopId ?? "no workshop id"}) by {adminPlayer.PlayerName}");
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error deleting map '{mapName}': {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error deleting map '{mapName}': {ex.Message}");
                 adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("DeleteMapError", ex.Message)}");
             }
         }
@@ -212,7 +212,7 @@ namespace AdminMenu
         {
             if (!File.Exists(_workshopAcfFilePath))
             {
-                Logger?.LogWarning($"Workshop acf file not found: {_workshopAcfFilePath}");
+                Logger?.LogWarning($"{PluginPrefix} Workshop acf file not found: {_workshopAcfFilePath}");
                 return;
             }
 
@@ -415,11 +415,11 @@ namespace AdminMenu
                 File.AppendAllText(_mapListFilePath, prefix + line + Environment.NewLine);
 
                 adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("AddMapSuccess", line)}");
-                Logger?.LogInformation($"Map added to map list: {line} by {adminPlayer.PlayerName}");
+                Logger?.LogInformation($"{PluginPrefix} Map added to map list: {line} by {adminPlayer.PlayerName}");
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"Error adding map '{mapName}' to map list: {ex.Message}");
+                Logger?.LogError($"{PluginPrefix} Error adding map '{mapName}' to map list: {ex.Message}");
                 adminPlayer.PrintToChat($"{PluginPrefix} {Msg.Get("AddMapError", ex.Message)}");
             }
         }
