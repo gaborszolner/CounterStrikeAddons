@@ -54,35 +54,32 @@ namespace SharedLibrary
         }
 
         public static Dictionary<string, T>? LoadDataFromFile<T>(string filePath)
+            => LoadDataFromFile<T>(filePath, createIfMissing: true);
+
+        public static Dictionary<string, T>? LoadDataFromFile<T>(string filePath, bool createIfMissing)
         {
-            Dictionary<string, T>? returnStat = default;
-
-            if (File.Exists(filePath))
+            string json;
+            try
             {
-                string? json = File.ReadAllText(filePath);
-                try
-                {
-                    var deserialized = JsonSerializer.Deserialize<Dictionary<string, T>>
-                        (json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-                    if (deserialized is not null)
-                    {
-                        returnStat = deserialized;
-                    }
-                    
-                }
-                catch (Exception)
-                {
-                    Server.PrintToConsole($"{LogPrefix} Failed to deserialize file: {json}");
-                    return null;
-                }
+                json = File.ReadAllText(filePath);
             }
-            else
+            catch (FileNotFoundException)
             {
-                File.WriteAllText(filePath, "{}");
+                if (createIfMissing)
+                    File.WriteAllText(filePath, "{}");
+                return null;
             }
 
-            return returnStat;
+            try
+            {
+                return JsonSerializer.Deserialize<Dictionary<string, T>>
+                    (json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+            catch (JsonException)
+            {
+                Server.PrintToConsole($"{LogPrefix} Failed to deserialize file: {json}");
+                return null;
+            }
         }
 
         public static void WriteToFile<T>(T? entry, string fileName)

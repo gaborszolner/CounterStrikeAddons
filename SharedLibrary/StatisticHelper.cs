@@ -2,6 +2,7 @@
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 using SharedLibrary.Entries;
+using System.Globalization;
 
 namespace SharedLibrary
 {
@@ -34,15 +35,13 @@ namespace SharedLibrary
         {
             var result = new Dictionary<string, PlayerStatEntry>();
 
-            DeleteOldFiles(month);
-
             for (int i = 0; i < month; i++)
             {
                 var date = DateTime.Now.AddMonths(-i);
                 var fileName = GetPlayerStatFileName(date);
                 var fullPath = Path.Combine(playerStatFilesBasePath, fileName);
 
-                var monthlyStats = Utils.LoadDataFromFile<PlayerStatEntry>(fullPath);
+                var monthlyStats = Utils.LoadDataFromFile<PlayerStatEntry>(fullPath, createIfMissing: false);
                 if (monthlyStats == null)
                     continue;
 
@@ -73,28 +72,23 @@ namespace SharedLibrary
             return result;
         }
 
-        private static void DeleteOldFiles(int month)
+        public static void DeleteOldFiles(string directory, int month)
         {
-            try { 
-                var directory = AppContext.BaseDirectory;
-                var files = Directory.GetFiles(directory, "playerStatistic*.json");
-                var thresholdDate = DateTime.Now.AddMonths(-month);
-                foreach (var file in files)
-                {
-                    var fileName = Path.GetFileNameWithoutExtension(file);
-                    var datePart = fileName.Replace("playerStatistic", "");
-                    if (DateTime.TryParseExact(datePart, "yyyyMM", null, System.Globalization.DateTimeStyles.None, out var fileDate))
-                    {
-                        if (fileDate < thresholdDate)
-                        {
-                            File.Delete(file);
-                        }
-                    }
-                }
-            }
-            catch
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(month);
+
+            var now = DateTime.Now;
+            var oldestRetainedMonth = new DateTime(now.Year, now.Month, 1).AddMonths(1 - month);
+            const string prefix = "playerStatistic";
+            foreach (var file in Directory.EnumerateFiles(directory, $"{prefix}*.json"))
             {
-                // Ignore any errors during deletion
+                var name = Path.GetFileNameWithoutExtension(file);
+                if (name.StartsWith(prefix, StringComparison.Ordinal)
+                    && DateTime.TryParseExact(name[prefix.Length..], "yyyyMM", CultureInfo.InvariantCulture,
+                        DateTimeStyles.None, out var fileDate)
+                    && fileDate < oldestRetainedMonth)
+                {
+                    File.Delete(file);
+                }
             }
         }
 

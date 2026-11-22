@@ -3,6 +3,7 @@ global using Msg = SharedLibrary.Msg<global::GameStatistic.GameStatistic>;
 ﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
+using Microsoft.Extensions.Logging;
 using SharedLibrary;
 using SharedLibrary.Entries;
 
@@ -37,6 +38,7 @@ namespace GameStatistic
             _mapStatFilePath = Path.Combine(ModuleDirectory, StatisticHelper.MapStatFileName);
             _config = ConfigLoader.Load<GameStatisticConfig>(ModuleDirectory, "GameStatisticConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
+            DeleteOldStatistics();
         }
 
         public HookResult OnPlayerChat(EventPlayerChat @event, GameEventInfo info)
@@ -83,6 +85,7 @@ namespace GameStatistic
                 {
                     _config = ConfigLoader.Load<GameStatisticConfig>(ModuleDirectory, "GameStatisticConfig.json");
                     SharedLibrary.Localizer.Initialize(_config.Language);
+                    DeleteOldStatistics();
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
                 }
             }
@@ -114,9 +117,22 @@ namespace GameStatistic
         private HookResult OnWarmupEnd(EventWarmupEnd @event, GameEventInfo info)
         {
             _isWarmup = false;
+            DeleteOldStatistics();
             StatisticHelper.PrintMapStat(_mapStatFilePath, true);
             StatisticHelper.PrintTeamStat(StatisticHelper.LoadMonthsStats(ModuleDirectory, _config.DateRangeForStatisticsInMonth));
             return HookResult.Continue;
+        }
+
+        private void DeleteOldStatistics()
+        {
+            try
+            {
+                StatisticHelper.DeleteOldFiles(ModuleDirectory, _config.DateRangeForStatisticsInMonth);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentOutOfRangeException)
+            {
+                Logger.LogError(ex, "{PluginPrefix} Failed to delete old statistics in {Directory}", PluginPrefix, ModuleDirectory);
+            }
         }
 
         private HookResult OnPlayerDeath(EventPlayerDeath @event, GameEventInfo info)

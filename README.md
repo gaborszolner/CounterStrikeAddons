@@ -136,6 +136,8 @@ The **Map handler** menu item in `!admin` (admin level 3) manages the RockTheVot
 
 Tracks player and map statistics. Statistics are only recorded when at least 4 (configurable) non-spectator players are present.
 
+Monthly player statistics older than `DateRangeForStatisticsInMonth` in `GameStatisticConfig.json` are deleted on plugin load, after warmup and when the configuration is reloaded. The current month counts toward the limit. The AdminMenu setting only controls how many months it reads; it does not extend this retention period.
+
 **Player statistics:**
 - Tracks kills, deaths, team kills, self-kills, and assists
 - Events during warmup or after round end are not counted
