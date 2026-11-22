@@ -24,7 +24,7 @@ namespace SiteRestrict
         private static Site _allowedSiteName = Site.NotDefined;
         private static bool _isRestricted = false;
         private static bool _isWarmup = false;
-        private static Config _config = new();
+        private static SiteRestrictConfig _config = new();
         private CounterStrikeSharp.API.Modules.Timers.Timer? _messageTimer = null;
 
         private static readonly Random random = new();
@@ -33,7 +33,7 @@ namespace SiteRestrict
 
         public override void Load(bool hotReload)
         {
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<SiteRestrictConfig>(ModuleDirectory, "SiteRestrictConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
 
             RegisterListener<Listeners.OnMapStart>(OnMapStart);
@@ -76,7 +76,7 @@ namespace SiteRestrict
             {
                 if (PlayerHelper.GetAdminLevel(player, adminsFilePath) > 2)
                 {
-                    _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+                    _config = ConfigLoader.Load<SiteRestrictConfig>(ModuleDirectory, "SiteRestrictConfig.json");
                     SharedLibrary.Localizer.Initialize(_config.Language);
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
                 }

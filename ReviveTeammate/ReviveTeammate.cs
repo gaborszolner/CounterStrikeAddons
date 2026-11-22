@@ -34,11 +34,11 @@ namespace ReviveTeammate
         private const float ReviveAimCosThreshold = 0.85f; // ~32° cone
 
         private static bool _isWarmup = false;
-        private static Config _config = new();
+        private static ReviveTeammateConfig _config = new();
 
         public override void Load(bool hotReload)
         {
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<ReviveTeammateConfig>(ModuleDirectory, "ReviveTeammateConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
 
             RegisterEventHandler<EventPlayerDeath>(OnPlayerDeath);
@@ -64,7 +64,7 @@ namespace ReviveTeammate
                 string adminsFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "admins.json");
                 if (PlayerHelper.GetAdminLevel(player, adminsFilePath) > 2)
                 {
-                    _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+                    _config = ConfigLoader.Load<ReviveTeammateConfig>(ModuleDirectory, "ReviveTeammateConfig.json");
                     SharedLibrary.Localizer.Initialize(_config.Language);
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
                 }

@@ -1,0 +1,7 @@
+{
+  "CanReviveTeammate": false,
+  "ReviveHoldDurationSeconds": 10.0,
+  "ReviveDeathWindowSeconds": 30.0,
+  "ReviveHP": 10,
+  "Language": "en"
+}

@@ -35,7 +35,7 @@ namespace QuickDefuse
 
         public override void Load(bool hotReload)
         {
-            var config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            var config = ConfigLoader.Load<QuickDefuseConfig>(ModuleDirectory, "QuickDefuseConfig.json");
             SharedLibrary.Localizer.Initialize(config.Language);
 
             RegisterEventHandler<EventBombBegindefuse>(OnBombBeginDefuse);

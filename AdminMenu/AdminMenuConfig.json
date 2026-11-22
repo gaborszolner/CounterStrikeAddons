@@ -1,0 +1,10 @@
+{
+  "AutoTeamShuffleOnRoundStart": true,
+  "AutoTeamShuffleMinDifferentPercentage": 25,
+  "WelcomeMessage": "Welcome to the server {0}!",
+  "DateRangeForStatisticsInMonth": 3,
+  "MinimumPlayerCountToStatistic": 4,
+  "AllowSameName": false,
+  "MuteAfterDeathInSecounds": 0,
+  "Language": "en"
+}

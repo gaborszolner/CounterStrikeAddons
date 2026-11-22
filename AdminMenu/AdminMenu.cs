@@ -31,7 +31,7 @@ namespace AdminMenu
         private static Dictionary<string, WeaponRestrictEntry>? _weaponRestrictEntry;
         private static Dictionary<string, AdminEntry>? _adminEntry;
         private static Dictionary<string, BannedEntry>? _bannedEntry;
-        private static Config _config = new();
+        private static AdminMenuConfig _config = new();
         private static Dictionary<string, PendingRenameEntry>? _pendingRename = [];
         private static readonly object _pendingRenameLock = new();
         private static readonly object _dictionaryLock = new();
@@ -60,7 +60,7 @@ namespace AdminMenu
             _bannedFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "banned.json");
             _weaponRestrictFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "weaponRestrict.json");
             _mapListFilePath = Path.Combine(ModuleDirectory, "..", "RockTheVote", "maplist.txt");
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<AdminMenuConfig>(ModuleDirectory, "AdminMenuConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
 
             _adminEntry = Utils.LoadDataFromFile<AdminEntry>(_adminsFilePath);
@@ -148,7 +148,7 @@ namespace AdminMenu
             _isWarmup = true;
             lock (_dictionaryLock)
             {
-                _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+                _config = ConfigLoader.Load<AdminMenuConfig>(ModuleDirectory, "AdminMenuConfig.json");
             }
             SharedLibrary.Localizer.Initialize(_config.Language);
             return HookResult.Continue;
@@ -388,7 +388,7 @@ namespace AdminMenu
                     _weaponRestrictEntry = Utils.LoadDataFromFile<WeaponRestrictEntry>(_weaponRestrictFilePath);
                     _adminEntry = Utils.LoadDataFromFile<AdminEntry>(_adminsFilePath);
                     _bannedEntry = Utils.LoadDataFromFile<BannedEntry>(_bannedFilePath);
-                    _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+                    _config = ConfigLoader.Load<AdminMenuConfig>(ModuleDirectory, "AdminMenuConfig.json");
                 }
                 player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
             }

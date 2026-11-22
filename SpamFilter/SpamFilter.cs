@@ -26,7 +26,7 @@ namespace SpamFilter
 
         public override void Load(bool hotReload)
         {
-            var config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            var config = ConfigLoader.Load<SpamFilterConfig>(ModuleDirectory, "SpamFilterConfig.json");
             SharedLibrary.Localizer.Initialize(config.Language);
 
             RegisterEventHandler<EventPlayerConnect>(OnPlayerConnect);

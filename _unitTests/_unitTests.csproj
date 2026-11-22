@@ -20,11 +20,26 @@
   <ItemGroup>
     <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
     <ProjectReference Include="..\AdminMenu\AdminMenu.csproj" />
+    <ProjectReference Include="..\DamageReport\DamageReport.csproj" />
+    <ProjectReference Include="..\GameStatistic\GameStatistic.csproj" />
+    <ProjectReference Include="..\MenuHotKey\MenuHotKey.csproj" />
+    <ProjectReference Include="..\QuickDefuse\QuickDefuse.csproj" />
+    <ProjectReference Include="..\ReviveTeammate\ReviveTeammate.csproj" />
     <ProjectReference Include="..\RockTheVote\RockTheVote.csproj" />
+    <ProjectReference Include="..\SiteRestrict\SiteRestrict.csproj" />
     <ProjectReference Include="..\SpamFilter\SpamFilter.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\AdminMenu\AdminMenuConfig.json" Link="ConfigDefaults\AdminMenuConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\DamageReport\DamageReportConfig.json" Link="ConfigDefaults\DamageReportConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\GameStatistic\GameStatisticConfig.json" Link="ConfigDefaults\GameStatisticConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\MenuHotKey\MenuHotKeyConfig.json" Link="ConfigDefaults\MenuHotKeyConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\QuickDefuse\QuickDefuseConfig.json" Link="ConfigDefaults\QuickDefuseConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\ReviveTeammate\ReviveTeammateConfig.json" Link="ConfigDefaults\ReviveTeammateConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\RockTheVote\rtvConfig.json" Link="ConfigDefaults\rtvConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\SiteRestrict\SiteRestrictConfig.json" Link="ConfigDefaults\SiteRestrictConfig.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\SpamFilter\SpamFilterConfig.json" Link="ConfigDefaults\SpamFilterConfig.json" CopyToOutputDirectory="PreserveNewest" />
     <None Update="Resources\mapStatistic.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -11,6 +11,6 @@
   "CloseVotingMenuAfterVote": true,
   "MapsToShow": 8,
   "MapsInCoolDown": 3,
-  "MapSortOrder": "None",
+  "MapSortOrder": "Usage",
   "Language": "en"
 }

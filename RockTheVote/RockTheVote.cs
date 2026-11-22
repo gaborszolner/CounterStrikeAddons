@@ -22,7 +22,7 @@ namespace RockTheVote
 
         public readonly string PluginPrefix = "[RockTheVote]";
 
-        private const string ConfigFileName = "rtvconfig.json";
+        private const string ConfigFileName = "rtvConfig.json";
         private const string MapListFileName = "maplist.txt";
         private const float MapChangeDelaySeconds = 5.0f;
 
@@ -49,7 +49,7 @@ namespace RockTheVote
 
         public override void Load(bool hotReload)
         {
-            _config = RtvConfig.LoadConfig(Path.Combine(ModuleDirectory, ConfigFileName));
+            _config = ConfigLoader.Load<RtvConfig>(ModuleDirectory, ConfigFileName, migrateSharedConfig: false);
             _adminsFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "admins.json");
             _mapListFilePath = Path.Combine(ModuleDirectory, MapListFileName);
             SharedLibrary.Localizer.Initialize(_config.Language);
@@ -144,7 +144,7 @@ namespace RockTheVote
             if (PlayerHelper.GetAdminLevel(player, _adminsFilePath) <= 2)
                 return;
 
-            _config = RtvConfig.LoadConfig(Path.Combine(ModuleDirectory, ConfigFileName));
+            _config = ConfigLoader.Load<RtvConfig>(ModuleDirectory, ConfigFileName, migrateSharedConfig: false);
             SharedLibrary.Localizer.Initialize(_config.Language);
             SortMapList();
             player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");

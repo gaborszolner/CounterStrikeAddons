@@ -1,0 +1,7 @@
+{
+  "DateRangeForStatisticsInMonth": 3,
+  "MinimumKillCountToShowInTop": 300,
+  "MinimumPlayerCountToStatistic": 4,
+  "EnableTopBottomCommand": false,
+  "Language": "en"
+}

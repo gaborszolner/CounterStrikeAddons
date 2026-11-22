@@ -23,11 +23,11 @@ namespace DamageReport
         private static readonly Dictionary<int, string> _playerNames = [];
 
         private static bool _isWarmup = false;
-        private static Config _config = new();
+        private static DamageReportConfig _config = new();
 
         public override void Load(bool hotReload)
         {
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<DamageReportConfig>(ModuleDirectory, "DamageReportConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
 
             RegisterEventHandler<EventPlayerHurt>(OnPlayerHurt);

@@ -39,6 +39,28 @@ Each plugin is installed independently. Extract the plugin folder into the corre
 
 See each plugin's section below for specific installation notes.
 
+## Configuration
+
+Each plugin creates its own configuration in its plugin directory on first run. Default JSON files are provided in the source tree as references and are not copied into the deployed plugin directory:
+
+| Plugin | Configuration file |
+|---|---|
+| AdminMenu | `AdminMenuConfig.json` |
+| DamageReport | `DamageReportConfig.json` |
+| GameStatistic | `GameStatisticConfig.json` |
+| MenuHotKey | `MenuHotKeyConfig.json` |
+| QuickDefuse | `QuickDefuseConfig.json` |
+| ReviveTeammate | `ReviveTeammateConfig.json` |
+| RockTheVote | `rtvConfig.json` |
+| SiteRestrict | `SiteRestrictConfig.json` |
+| SpamFilter | `SpamFilterConfig.json` |
+
+If a plugin has an old `config.json` but no new plugin-specific file, its relevant settings are copied to the new file on first load. The old file is left unchanged. If the new file exists, it takes precedence. For these migrated plugins, invalid configuration files cause a load error instead of silently resetting settings.
+
+On case-sensitive systems, the previous lowercase-`config` filenames, including `rtvconfig.json`, are also migrated when the new filename is missing.
+
+Settings used by multiple plugins, including `Language`, must be configured separately in each plugin's file. StartMap uses `startMap.txt` instead.
+
 ---
 
 # AdminMenu
@@ -193,14 +215,14 @@ Allows alive teammates to revive recently killed players without waiting for the
 3. A progress bar is shown on screen. After holding for the configured duration, the dead player is respawned with a small amount of HP (configurable).
 4. If the revivers stops aiming or moves out of range, the progress resets.
 
-**Configurable options (in `config.json`):**
+**Configurable options (in `ReviveTeammateConfig.json`):**
 
 | Option | Default | Description |
 |---|---|---|
 | `ReviveHoldDurationSeconds` | `10.0` | How long to hold USE to complete the revive |
 | `ReviveDeathWindowSeconds` | `30.0` | How long after death a player can be revived |
 | `ReviveHP` | `10` | HP the revived player is spawned with |
-| `CanReviveTeammate` | `true` | Enable or disable the feature |
+| `CanReviveTeammate` | `false` | Enable or disable the feature |
 
 ## Installation
 
@@ -236,9 +258,9 @@ Built-in maps use `changelevel`, maps with a workshop ID use `host_workshop_map 
 | `!revote` | During a map vote: removes your previous vote (if any) and reopens the vote menu |
 | `!nextmap` | Show the next map |
 | `!setnextmap [map]` | Admin level 3: set the next map |
-| `!reload` | Admin level 3: reload `rtvconfig.json` |
+| `!reload` | Admin level 3: reload `rtvConfig.json` |
 
-**Configurable options (in `rtvconfig.json`):**
+**Configurable options (in `rtvConfig.json`):**
 
 | Option | Default | Description |
 |---|---|---|
@@ -320,7 +342,7 @@ When the CT team has fewer players than a configurable threshold at the start of
 3. All players receive a center-screen announcement 2 seconds into the round indicating which site is active.
 4. If a T player attempts to plant at the restricted site, their bomb is dropped and they receive an on-screen warning.
 
-**Configurable options (in `config.json`):**
+**Configurable options (in `SiteRestrictConfig.json`):**
 
 | Option | Default | Description |
 |---|---|---|
@@ -338,7 +360,7 @@ Extract the `SiteRestrict` folder to `...\csgo\addons\counterstrikesharp\plugins
 # SpamFilter
 It tries to detect spammers and the frequent name changes used by scammers.
 
-**Configurable options (in `config.json`, created automatically on first run):**
+**Configurable options (in `SpamFilterConfig.json`, created automatically on first run):**
 
 | Option | Default | Description |
 |---|---|---|

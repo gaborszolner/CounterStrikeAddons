@@ -21,7 +21,7 @@ namespace MenuHotKey
 
         public override void Load(bool hotReload)
         {
-            var config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            var config = ConfigLoader.Load<MenuHotKeyConfig>(ModuleDirectory, "MenuHotKeyConfig.json");
             SharedLibrary.Localizer.Initialize(config.Language);
 
             RegisterEventHandler<EventPlayerConnect>(OnPlayerConnectFull);

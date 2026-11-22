@@ -22,7 +22,7 @@ namespace GameStatistic
         private static Dictionary<string, PlayerStatEntry> _playerStatEntries = [];
         private static bool _isWarmup = false;
         private static bool _isRoundEnded = false;
-        private static Config _config = new();
+        private static GameStatisticConfig _config = new();
 
         public override void Load(bool hotReload)
         {
@@ -35,7 +35,7 @@ namespace GameStatistic
             RegisterEventHandler<EventPlayerChat>(OnPlayerChat);
             RegisterEventHandler<EventStartHalftime>(OnStartHalftime);
             _mapStatFilePath = Path.Combine(ModuleDirectory, StatisticHelper.MapStatFileName);
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<GameStatisticConfig>(ModuleDirectory, "GameStatisticConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
         }
 
@@ -81,7 +81,7 @@ namespace GameStatistic
                 string adminsFilePath = Path.Combine(ModuleDirectory, "..", "..", "configs", "admins.json");
                 if (PlayerHelper.GetAdminLevel(player, adminsFilePath) > 2)
                 {
-                    _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+                    _config = ConfigLoader.Load<GameStatisticConfig>(ModuleDirectory, "GameStatisticConfig.json");
                     SharedLibrary.Localizer.Initialize(_config.Language);
                     player.PrintToChat($"{PluginPrefix} {Msg.Get("ConfigsReloaded")}");
                 }
@@ -105,7 +105,7 @@ namespace GameStatistic
         private HookResult OnRoundAnnounceWarmup(EventRoundAnnounceWarmup @event, GameEventInfo info)
         {
             _isWarmup = true;
-            _config = Config.LoadConfig(Path.Combine(ModuleDirectory, "config.json"));
+            _config = ConfigLoader.Load<GameStatisticConfig>(ModuleDirectory, "GameStatisticConfig.json");
             SharedLibrary.Localizer.Initialize(_config.Language);
             _mapStatFilePath = Path.Combine(ModuleDirectory, StatisticHelper.MapStatFileName);
             return HookResult.Continue;

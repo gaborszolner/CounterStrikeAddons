@@ -14,27 +14,8 @@ namespace RockTheVote
         public bool CloseVotingMenuAfterVote { get; set; } = true;
         public int MapsToShow { get; set; } = 8;
         public int MapsInCoolDown { get; set; } = 3;
-        public string MapSortOrder { get; set; } = "None";
+        public string MapSortOrder { get; set; } = "Usage";
         public string Language { get; set; } = "en";
 
-        public static RtvConfig LoadConfig(string configFile)
-        {
-            RtvConfig? config = null;
-            try
-            {
-                if (!File.Exists(configFile))
-                {
-                    config = new RtvConfig();
-                    var json = System.Text.Json.JsonSerializer.Serialize(config, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
-                    File.WriteAllText(configFile, json);
-                    return config;
-                }
-                string fileContent = File.ReadAllText(configFile);
-                config = System.Text.Json.JsonSerializer.Deserialize<RtvConfig>(fileContent);
-            }
-            catch { }
-
-            return config ?? new RtvConfig();
-        }
     }
 }

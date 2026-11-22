@@ -51,7 +51,7 @@ namespace _unitTests
                 Assert.AreEqual("You are not admin.", Msg<global::AdminMenu.AdminMenu>.Get("NotAdminError"));
                 Assert.AreEqual("Player Alice (123) has changed their name 4 times within 30s.",
                     Msg<global::SpamFilter.SpamFilter>.Get("NameChangeWarning", "Alice", "123", 4, 30));
-                Assert.AreEqual("Teams are equal", Msg<Config>.Get("TeamsEqual"));
+                Assert.AreEqual("Teams are equal", Msg<Utils>.Get("TeamsEqual"));
                 Assert.AreEqual("NotAdminError", Msg<global::SpamFilter.SpamFilter>.Get("NotAdminError"));
             }
             finally

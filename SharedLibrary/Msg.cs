@@ -1,4 +1,4 @@
-global using Msg = SharedLibrary.Msg<SharedLibrary.Config>;
+global using Msg = SharedLibrary.Msg<SharedLibrary.Utils>;
 
 using System.Resources;
 
