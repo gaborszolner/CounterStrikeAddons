@@ -34,7 +34,7 @@
   </data>
   <!-- {0}=player name, {1}=current RTV count, {2}=required count -->
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} wants to rock the vote ({1}/{2}). Type !rtv to join.</value>
+    <value>{0} wants to rock the vote ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>Rock the vote succeeded! Starting map vote...</value>
@@ -69,6 +69,9 @@
   <!-- {0}=map name or filter -->
   <data name="MapNotFound" xml:space="preserve">
     <value>No available map matches '{0}'.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' was played recently and cannot be nominated yet.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>No maps available.</value>

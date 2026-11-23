@@ -32,6 +32,7 @@ namespace AdminMenu
         private static Dictionary<string, AdminEntry>? _adminEntry;
         private static Dictionary<string, BannedEntry>? _bannedEntry;
         private static AdminMenuConfig _config = new();
+        private static readonly DeathMuteTracker _deathMuteTracker = new();
         private static Dictionary<string, PendingRenameEntry>? _pendingRename = [];
         private static readonly object _pendingRenameLock = new();
         private static readonly object _dictionaryLock = new();
@@ -92,15 +93,19 @@ namespace AdminMenu
 
             if (_config.MuteAfterDeathInSecounds > 0 && !_isWarmup && targetPlayer is not null && targetPlayer.IsValid && !targetPlayer.IsBot)
             {
-                var originalVoiceFlag = targetPlayer.VoiceFlags;
+                var steamId = targetPlayer.SteamID;
+                var token = _deathMuteTracker.Begin(steamId, (targetPlayer.VoiceFlags & VoiceFlags.Muted) != 0);
                 targetPlayer.VoiceFlags |= VoiceFlags.Muted;
                 AddTimer(_config.MuteAfterDeathInSecounds, () =>
                 {
                     try
                     {
+                        if (!_deathMuteTracker.TryComplete(steamId, token))
+                            return;
+
                         if (targetPlayer.IsValid)
                         {
-                            targetPlayer.VoiceFlags = originalVoiceFlag;
+                            targetPlayer.VoiceFlags = RestoreMuteFlag(targetPlayer.VoiceFlags, token.WasMutedBeforeDeath);
                         }
                     }
                     catch (Exception ex)
@@ -111,6 +116,13 @@ namespace AdminMenu
             }
 
             return HookResult.Continue;
+        }
+
+        private static VoiceFlags RestoreMuteFlag(VoiceFlags currentFlags, bool shouldBeMuted)
+        {
+            return shouldBeMuted
+                ? currentFlags | VoiceFlags.Muted
+                : currentFlags & ~VoiceFlags.Muted;
         }
 
         private HookResult OnWarmupEnd(EventWarmupEnd @event, GameEventInfo info)

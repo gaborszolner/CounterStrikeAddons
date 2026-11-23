@@ -31,7 +31,7 @@
     <value>你已经投票换图了（{0}/{1}）。</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} 想要换图（{1}/{2}）。输入 !rtv 加入。</value>
+    <value>{0} 想要换图（{1}/{2}）。</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>投票换图成功！开始地图投票...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>没有与 '{0}' 匹配的可用地图。</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' 最近刚玩过，暂时无法提名。</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>没有可用的地图。</value>

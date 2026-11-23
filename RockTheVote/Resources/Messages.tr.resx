@@ -31,7 +31,7 @@
     <value>Harita değişikliği için zaten oy verdin ({0}/{1}).</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} haritayı değiştirmek istiyor ({1}/{2}). Katılmak için !rtv yaz.</value>
+    <value>{0} haritayı değiştirmek istiyor ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>Rock the vote başarılı! Harita oylaması başlıyor...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>'{0}' ile eşleşen uygun harita yok.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' yakın zamanda oynandı, henüz aday gösterilemez.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>Uygun harita yok.</value>

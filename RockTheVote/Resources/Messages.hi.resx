@@ -31,7 +31,7 @@
     <value>आप पहले ही मैप बदलने के लिए वोट कर चुके हैं ({0}/{1})।</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} मैप बदलना चाहता है ({1}/{2})। शामिल होने के लिए !rtv लिखें।</value>
+    <value>{0} मैप बदलना चाहता है ({1}/{2})।</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>रॉक द वोट सफल! मैप वोटिंग शुरू हो रही है...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>'{0}' से मेल खाता कोई उपलब्ध मैप नहीं है।</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' हाल ही में खेला गया है, इसलिए अभी नॉमिनेट नहीं किया जा सकता।</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>कोई मैप उपलब्ध नहीं है।</value>

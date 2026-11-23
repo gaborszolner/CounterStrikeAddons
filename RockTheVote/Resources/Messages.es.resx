@@ -31,7 +31,7 @@
     <value>Ya has votado para cambiar el mapa ({0}/{1}).</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} quiere cambiar el mapa ({1}/{2}). Escribe !rtv para unirte.</value>
+    <value>{0} quiere cambiar el mapa ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>¡Rock the vote completado! Iniciando votación de mapa...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>Ningún mapa disponible coincide con '{0}'.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' se jugó recientemente y todavía no se puede nominar.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>No hay mapas disponibles.</value>

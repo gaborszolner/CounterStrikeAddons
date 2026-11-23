@@ -31,7 +31,7 @@
     <value>Már szavaztál a pályaváltásra ({0}/{1}).</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} pályát váltana ({1}/{2}). Írd be: !rtv, ha csatlakoznál.</value>
+    <value>{0} pályát váltana ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>Az RTV sikeres! Indul a pályaszavazás...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>Nincs elérhető pálya erre: '{0}'.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' nemrég ment, ezért most nem nominálható.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>Nincs elérhető pálya.</value>

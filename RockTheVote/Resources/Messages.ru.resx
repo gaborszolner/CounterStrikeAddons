@@ -31,7 +31,7 @@
     <value>Вы уже проголосовали за смену карты ({0}/{1}).</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} хочет сменить карту ({1}/{2}). Напишите !rtv, чтобы присоединиться.</value>
+    <value>{0} хочет сменить карту ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>RTV успешно! Начинается голосование за карту...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>Нет доступной карты, соответствующей '{0}'.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' недавно игралась, поэтому её пока нельзя номинировать.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>Нет доступных карт.</value>

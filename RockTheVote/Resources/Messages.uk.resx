@@ -31,7 +31,7 @@
     <value>Ви вже проголосували за зміну мапи ({0}/{1}).</value>
   </data>
   <data name="RtvPlayerVoted" xml:space="preserve">
-    <value>{0} хоче змінити мапу ({1}/{2}). Напишіть !rtv, щоб приєднатися.</value>
+    <value>{0} хоче змінити мапу ({1}/{2}).</value>
   </data>
   <data name="RtvSuccess" xml:space="preserve">
     <value>RTV успішне! Починається голосування за мапу...</value>
@@ -62,6 +62,9 @@
   </data>
   <data name="MapNotFound" xml:space="preserve">
     <value>Немає доступної мапи, що відповідає '{0}'.</value>
+  </data>
+  <data name="MapRecentlyPlayed" xml:space="preserve">
+    <value>'{0}' нещодавно грали, тому її поки не можна номінувати.</value>
   </data>
   <data name="NoMapsAvailable" xml:space="preserve">
     <value>Немає доступних мап.</value>

@@ -260,7 +260,14 @@ namespace RockTheVote
             var maps = FilterMaps(GetAvailableMaps(), mapFilter);
             if (maps.Count == 0)
             {
-                player.PrintToChat($"{PluginPrefix} {(string.IsNullOrEmpty(mapFilter) ? Msg.Get("NoMapsAvailable") : Msg.Get("MapNotFound", mapFilter))}");
+                if (string.IsNullOrEmpty(mapFilter))
+                {
+                    player.PrintToChat($"{PluginPrefix} {Msg.Get("NoMapsAvailable")}");
+                    return;
+                }
+
+                var recentMaps = FindRecentlyPlayedMaps(ReadMapsFromFile().Keys, _recentMaps, mapFilter);
+                player.PrintToChat($"{PluginPrefix} {(recentMaps.Count > 0 ? Msg.Get("MapRecentlyPlayed", string.Join(", ", recentMaps)) : Msg.Get("MapNotFound", mapFilter))}");
                 return;
             }
 
@@ -306,6 +313,15 @@ namespace RockTheVote
         }
 
         private static int GetMapsToShow() => Math.Max(2, _config.MapsToShow);
+
+        // Maps from the map list that match the filter but are excluded because they were played recently
+        public static List<string> FindRecentlyPlayedMaps(IEnumerable<string> allMaps, IEnumerable<string> recentMaps, string filter)
+        {
+            var recentInMapList = allMaps
+                .Where(m => recentMaps.Contains(m, StringComparer.OrdinalIgnoreCase))
+                .ToList();
+            return string.IsNullOrWhiteSpace(filter) ? [] : FilterMaps(recentInMapList, filter);
+        }
 
         #endregion
 
@@ -518,7 +534,7 @@ namespace RockTheVote
                     });
                 }
 
-                MenuManager.OpenCenterHtmlMenu(this, player, menu);
+                OpenSixMapMenu(player, menu);
             }
             catch (Exception ex)
             {
@@ -756,7 +772,15 @@ namespace RockTheVote
                 menu.AddMenuOption(map, (controller, _) => onSelect(controller, map));
             }
 
-            MenuManager.OpenCenterHtmlMenu(this, player, menu);
+            OpenSixMapMenu(player, menu);
+        }
+
+        private void OpenSixMapMenu(CCSPlayerController player, CenterHtmlMenu menu)
+        {
+            MenuManager.CloseActiveMenu(player);
+            var instance = new MapMenuInstance(this, player, menu);
+            MenuManager.GetActiveMenus()[player.Handle] = instance;
+            instance.Display();
         }
 
         private static List<string> FilterMaps(List<string> maps, string filter)
@@ -827,5 +851,12 @@ namespace RockTheVote
         }
 
         #endregion
+    }
+
+    public class MapMenuInstance(BasePlugin plugin, CCSPlayerController player, CenterHtmlMenu menu)
+        : CenterHtmlMenuInstance(plugin, player, menu)
+    {
+        public override int NumPerPage => 6;
+        protected override int MenuItemsPerPage => NumPerPage;
     }
 }
